@@ -1,0 +1,84 @@
+.header__container {
+  width: 100%;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: hsla(0, 0%, 0%, 0.8);
+}
+
+.header-cont__logo {
+  width: 50%;
+}
+
+.header-cont__logo img {
+  width: 50%;
+  min-width: 175px;
+  max-width: 800px;
+  position: relative;
+  z-index: 100;
+}
+
+.header-cont__navbar {
+  position: fixed;
+  right: 100%;
+  top: 0;
+  height: 100vh;
+  width: 100vw;
+  background-color: hsla(0, 0%, 50%, 0.6);
+  transition: all 400ms ease-in-out;
+}
+
+@supports ((backdrop-filter: none) or (-webkit-backdrop-filter: none;)) {
+  .header-cont__navbar {
+    background-color: hsla(0, 0%, 50%, 0.3);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+}
+
+.header-cont__navbar ul {
+  width: 100%;
+  height: 76vh;
+  margin: 12vh 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+}
+
+.header-cont__navbar ul li a {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: hsl(100, 89%, 63%);
+}
+.header-cont__navbar ul li a::after {
+  content: "";
+  display: block;
+  height: 3px;
+  width: 0px;
+  background-color: hsl(100, 89%, 63%);
+  transition: 100ms ease-in-out;
+}
+
+.header-cont__navbar ul li a:hover::after {
+  width: 100%;
+}
+
+.header__container input {
+  display: none;
+}
+.header__container input:checked ~ .header-cont__navbar {
+  right: 0;
+}
+.header__container label {
+  z-index: 100;
+  position: relative;
+  display: block;
+  height: 100%;
+}
+.header__container label > img {
+  width: 60px;
+  z-index: -1;
+}
