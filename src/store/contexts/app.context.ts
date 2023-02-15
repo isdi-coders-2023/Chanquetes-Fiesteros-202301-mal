@@ -1,6 +1,6 @@
 import { createContext, Dispatch } from "react";
 import { AppActions } from "../actions/actions";
-import { AppState } from "./app.provider";
+import { AppState } from "../../types/appInterfaces";
 
 interface AppContextProps {
   state: AppState;

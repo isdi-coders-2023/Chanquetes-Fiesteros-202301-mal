@@ -18,12 +18,6 @@ export interface CharactersInterface {
   status: string;
   species: string;
   gender: string;
-  origin: {
-    name: string;
-  };
-  location: {
-    name: string;
-  };
   image: string;
   url: string;
   created: string;
