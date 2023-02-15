@@ -3,7 +3,7 @@ import {
   CharactersInterface,
   PlanetInterface,
 } from "../types/appInterfaces.js";
-import { getPlanetsData, getResidentsFromPlanets } from "./data";
+import { getPlanetsData, getCharactersData } from "./data";
 
 describe("Given an API call", () => {
   beforeAll(() => server.listen());
@@ -16,9 +16,9 @@ describe("Given an API call", () => {
   });
 
   test("When the server respond with a 200, then the expected array should have characters data", async () => {
-    const charactersList: CharactersInterface[] = await getResidentsFromPlanets(
-      [1, 2, 3]
-    );
+    const charactersList: CharactersInterface[] = await getCharactersData([
+      1, 2, 3,
+    ]);
     expect(charactersList).toHaveLength(3);
     expect(charactersList[1].id).toBe(2);
   });

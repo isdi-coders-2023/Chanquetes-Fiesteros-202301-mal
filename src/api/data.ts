@@ -13,7 +13,7 @@ export const getPlanetsData = async (planets: number[]) => {
   return planetsList;
 };
 
-export const getResidentsFromPlanets = async (residents: number[]) => {
+export const getCharactersData = async (residents: string[]) => {
   const residentsList: CharactersInterface[] = [];
   for (let resident of residents) {
     const response = await fetch(
