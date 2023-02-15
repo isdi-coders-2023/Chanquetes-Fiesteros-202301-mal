@@ -5,7 +5,7 @@ const Error404 = () => {
       <h1 className="error__title">Error 404</h1>
       <div className="error__text-block">
         <p className="error__text">
-          Don’t worry my friend, not an alien penis...<br></br>
+          Don't worry my friend, not an alien penis...<br></br>
           <a className="error__text--hover" href="./">
             Flip the pickle.
           </a>
