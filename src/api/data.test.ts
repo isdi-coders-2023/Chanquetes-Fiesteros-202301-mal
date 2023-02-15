@@ -13,9 +13,7 @@ describe("Given an API call", () => {
   });
 
   test("When the server respond with a 200, then the expected array should have characters data", async () => {
-    const charactersList: CharactersInterface[] = await getCharactersData([
-      "1",
-    ]);
+    const charactersList: CharactersInterface[] = await getCharactersData([1]);
     expect(charactersList).toHaveLength(1);
     expect(charactersList[0].id).toBe(1);
   });
