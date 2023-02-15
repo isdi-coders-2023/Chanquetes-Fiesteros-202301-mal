@@ -1,4 +1,4 @@
-import { CharactersInterface, PlanetInterface } from "../types/app-interfaces";
+import { CharactersInterface, PlanetInterface } from "../types/appInterfaces";
 
 export const getPlanetsData = async (planets: number[]) => {
   const planetsList: PlanetInterface[] = [];
@@ -10,18 +10,18 @@ export const getPlanetsData = async (planets: number[]) => {
     planetsList.push(planetData);
     planetsList.sort((a, b) => a.id - b.id);
   }
-  for (let residents of planetsList) {
-    getResidentsFromPlanets(residents.residents);
-  }
   return planetsList;
 };
 
-export const getResidentsFromPlanets = async (residents: string[]) => {
+export const getResidentsFromPlanets = async (residents: number[]) => {
   const residentsList: CharactersInterface[] = [];
   for (let resident of residents) {
-    const response = await fetch(resident);
+    const response = await fetch(
+      `https://rickandmortyapi.com/api/location/${resident}`
+    );
     const residentsData = await response.json();
     residentsList.push(residentsData);
     residentsList.sort((a, b) => a.id - b.id);
   }
+  return residentsList;
 };
