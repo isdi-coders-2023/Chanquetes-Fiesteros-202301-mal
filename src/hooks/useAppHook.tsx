@@ -1,8 +1,7 @@
 import { useContext } from "react";
 import { getCharactersData, getPlanetsData } from "../api/data";
-import { ActionTypes } from "../store/actions/actions";
+import { ActionTypes, AppActions } from "../store/actions/actions";
 import AppContext from "../store/contexts/app.context";
-import { AppActions } from "../store/actions/actions";
 
 const useAppHook = () => {
   const { state, dispatch } = useContext(AppContext);
