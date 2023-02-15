@@ -1,19 +1,11 @@
 import { FC, Reducer, useReducer } from "react";
-import {
-  CharactersInterface,
-  PlanetInterface,
-} from "../../types/app-interfaces";
 import { AppActions } from "../actions/actions";
+import { AppState } from "../../types/appInterfaces";
 import appReducer from "../reducers/appReducer";
 import AppContext from "./app.context";
 
 interface DataProviderProps {
   children: JSX.Element | JSX.Element[];
-}
-
-export interface AppState {
-  planets: PlanetInterface[];
-  characters: CharactersInterface[];
 }
 
 const AppProvider: FC<DataProviderProps> = ({ children }) => {

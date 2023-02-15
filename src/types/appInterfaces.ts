@@ -1,3 +1,8 @@
+export interface AppState {
+  planets: PlanetInterface[];
+  characters: CharactersInterface[];
+}
+
 export interface PlanetInterface {
   id: number;
   name: string;

@@ -1,7 +1,7 @@
 import {
   CharactersInterface,
   PlanetInterface,
-} from "../../types/app-interfaces";
+} from "../../types/appInterfaces";
 
 export type AppActions = PlanetActions | CharacterActions;
 
