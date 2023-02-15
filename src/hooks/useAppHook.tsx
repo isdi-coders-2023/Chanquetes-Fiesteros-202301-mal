@@ -7,10 +7,8 @@ import { AppActions } from "../store/actions/actions";
 const useAppHook = () => {
   const { state, dispatch } = useContext(AppContext);
 
-  const getPlanetsList = async () => {
-    const planetsData = await getPlanetsData([
-      1, 3, 4, 5, 6, 8, 13, 16, 18, 20,
-    ]);
+  const getPlanetsList = async (planets: number[]) => {
+    const planetsData = await getPlanetsData(planets);
     const initializePlanetsAction = {
       type: ActionTypes.INITIALIZE_PLANETS,
       payload: planetsData,
