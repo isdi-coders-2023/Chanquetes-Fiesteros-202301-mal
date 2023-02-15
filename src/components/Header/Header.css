@@ -104,9 +104,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 50px;
     flex-direction: row;
-    gap: 24px;
+    gap: 1.5rem;
   }
   .header__container label {
     display: none;
