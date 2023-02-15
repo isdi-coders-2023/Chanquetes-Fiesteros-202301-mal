@@ -15,13 +15,13 @@ const useAppHook = () => {
     dispatch(initializePlanetsAction as AppActions);
   };
 
-  const getCharactersList = async () => {
-    const charactersData = await getCharactersData([]);
-    const initializePlanetsAction = {
-      type: ActionTypes.INITIALIZE_PLANETS,
+  const getCharactersList = async (characters: number[]) => {
+    const charactersData = await getCharactersData(characters);
+    const initializeCharactersAction = {
+      type: ActionTypes.INITIALIZE_CHARACTERS,
       payload: charactersData,
     };
-    dispatch(initializePlanetsAction as AppActions);
+    dispatch(initializeCharactersAction as AppActions);
   };
 
   return { state, getPlanetsList, getCharactersList };
