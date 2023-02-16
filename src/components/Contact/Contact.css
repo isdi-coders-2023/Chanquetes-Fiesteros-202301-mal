@@ -1,0 +1,24 @@
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&display=swap");
+
+.contact__container {
+  color: white;
+  font-family: "IBM Plex Mono", monospace;
+  margin: 0 auto;
+  text-align: center;
+  padding: 1rem;
+  font-weight: 400;
+}
+.contact__text {
+  margin: 2rem auto;
+  font-size: 23px;
+  max-width: 45rem;
+}
+
+.contact__img {
+  width: 90%;
+  max-width: 31rem;
+}
+
+.contact__mail {
+  color: #87f54e;
+}
