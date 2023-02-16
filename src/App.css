@@ -11,4 +11,11 @@
 .container {
   width: 100%;
   min-height: 100vh;
+  padding: 8rem 1.25rem 2rem;
+}
+
+@media screen and (min-width: 1024px) {
+  .container {
+    padding-top: 4rem;
+  }
 }
