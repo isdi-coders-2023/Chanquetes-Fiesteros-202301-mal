@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import "./Footer.css";
 
 const Footer = () => {
@@ -11,13 +12,13 @@ const Footer = () => {
       <nav className="footer-cont__navbar">
         <ul>
           <li>
-            <a href="./">Home</a>
+            <Link to={"./"}>Home</Link>
           </li>
           <li>
-            <a href="./">Favorite</a>
+            <Link to={"favorites"}>Favorites</Link>
           </li>
           <li>
-            <a href="./">Contact</a>
+            <Link to={"contact"}>Contact</Link>
           </li>
         </ul>
       </nav>
@@ -28,7 +29,11 @@ const Footer = () => {
         </p>
         <ul className="social-container">
           <li>
-            <a href="./">
+            <a
+              href="https://github.com/JoaccoG"
+              target="_blank"
+              rel="noreferrer"
+            >
               <img
                 className="social-container__logo"
                 src="./assets/github-logo.png"
@@ -37,7 +42,7 @@ const Footer = () => {
             </a>
           </li>
           <li>
-            <a href="./">
+            <a href="https://github.com/Huck8" target="_blank" rel="noreferrer">
               <img
                 className="social-container__logo"
                 src="./assets/github-logo.png"
@@ -46,7 +51,11 @@ const Footer = () => {
             </a>
           </li>
           <li>
-            <a href="./">
+            <a
+              href="https://github.com/Fleyvad/"
+              target="_blank"
+              rel="noreferrer"
+            >
               <img
                 className="social-container__logo"
                 src="./assets/github-logo.png"
