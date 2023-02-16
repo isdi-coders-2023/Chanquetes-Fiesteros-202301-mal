@@ -1,16 +1,13 @@
 import AppProvider from "./store/contexts/app.provider";
-import Header from "./components/Header/Header";
-import Footer from "./components/Footer/Footer";
+import { RouterProvider } from "react-router-dom";
+import router from "./router/app-router";
 import "./App.css";
 
 function App() {
   return (
-    <main className="container">
-      <AppProvider>
-        <Header />
-        <Footer />
-      </AppProvider>
-    </main>
+    <AppProvider>
+      <RouterProvider router={router} />
+    </AppProvider>
   );
 }
 
