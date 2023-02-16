@@ -1,6 +1,6 @@
 import { AppState } from "../../types/appInterfaces";
 import { ActionTypes, AppActions } from "../actions/actions";
-import appReducer from "../reducers/appReducer";
+import appReducer from "./appReducer";
 
 describe("Given the app reducer", () => {
   test("When the reducer receives default action, then the new state shouldn't change", () => {

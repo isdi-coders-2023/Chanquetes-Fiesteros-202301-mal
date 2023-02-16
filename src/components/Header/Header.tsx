@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import "./Header.css";
 
 const Header = () => {
@@ -13,13 +14,13 @@ const Header = () => {
       <nav className="header-cont__navbar">
         <ul>
           <li>
-            <a href="./">Home</a>
+            <Link to={"./"}>Home</Link>
           </li>
           <li>
-            <a href="./">Favorites</a>
+            <Link to={"favorites"}>Favorites</Link>
           </li>
           <li>
-            <a href="./">Contact</a>
+            <Link to={"contact"}>Contact</Link>
           </li>
         </ul>
       </nav>
