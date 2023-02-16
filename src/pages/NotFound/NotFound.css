@@ -54,8 +54,8 @@
   width: 85%;
   margin: 3rem auto 0;
   color: #fff;
-  background-color: hsl(120, 100%, 30%);
-  border: 2px solid hsl(120, 100%, 30%);
+  background-color: hsl(120, 70%, 50%);
+  border: 2px solid hsl(120, 70%, 50%);
   border-radius: 2rem;
   padding: 0.6rem 2rem;
   font-size: 1.2rem;
@@ -64,7 +64,7 @@
   transition: all 150ms ease-in-out;
 }
 .error__container .button:hover {
-  color: hsl(120, 100%, 30%);
+  color: hsl(120, 70%, 50%);
   background-color: #fff;
 }
 
