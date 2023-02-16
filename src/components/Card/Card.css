@@ -56,10 +56,6 @@
   position: absolute;
   left: 8px;
   top: 8px;
-}
-
-.card__rating {
   background: lime;
-  padding: 0.1rem;
   border-radius: 50%;
 }
