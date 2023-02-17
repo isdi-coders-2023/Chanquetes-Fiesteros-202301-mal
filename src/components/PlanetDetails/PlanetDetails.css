@@ -1,0 +1,115 @@
+.planet-details__container {
+  width: 100%;
+}
+
+.p-d-container__info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 60px;
+}
+
+.p-d-info__sprite {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+}
+
+.p-d-info__sprite img {
+  width: 250px;
+}
+
+.p-d-info__text {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  gap: 60px;
+}
+
+.p-d-info__text h1,
+.p-d-container__characters h1 {
+  font-family: "Schwifty";
+  font-size: 2.5rem;
+  color: hsl(120, 70%, 50%);
+  margin: 0 auto;
+}
+
+.info-text__data {
+  color: #fff;
+  gap: 60px;
+}
+
+.info-text__data p {
+  font-size: 1.8rem;
+  font-weight: 700;
+}
+
+.info-text__data span {
+  display: block;
+  font-size: 1.5rem;
+  font-weight: 300;
+  margin: 0 0 1.5rem 1.2rem;
+}
+
+.p-d-container__characters {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 50px;
+  margin-bottom: 2rem;
+}
+
+.p-d-characters__residents ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 32px;
+  padding: 0 2rem;
+}
+
+.residents__list {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+
+@media screen and (min-width: 580px) {
+  .p-d-info__sprite img {
+    right: 20%;
+    width: 320px;
+  }
+  .p-d-info__text h1,
+  .p-d-container__characters h1 {
+    font-size: 3.2rem;
+  }
+  .info-text__data {
+    padding: 0 60px;
+  }
+  .p-d-characters__residents {
+    flex-wrap: nowrap;
+  }
+  .residents__list {
+    flex-wrap: nowrap;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .p-d-container__info {
+    flex-direction: row;
+    height: 60vh;
+  }
+  .p-d-info__sprite img {
+    position: absolute;
+    right: 25%;
+    width: 550px;
+  }
+  .info-text__data {
+    padding: 0;
+  }
+  .p-d-container__characters {
+    margin-top: 100px;
+  }
+}
