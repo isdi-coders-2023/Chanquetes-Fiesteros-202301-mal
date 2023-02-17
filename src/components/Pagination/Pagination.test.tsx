@@ -1,39 +1,66 @@
-import {
-  act,
-  render,
-  renderHook,
-  screen,
-  waitFor,
-} from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import useAppHook from "../../hooks/useAppHook";
-import AppProvider from "../../store/contexts/app.provider";
 import Pagination from "./Pagination";
 
-describe("Given a PlanetDetails component", () => {
-  test("When the PlanetDetails render, then it should have the component in it", () => {
+jest.mock("../../hooks/useAppHook", () => {
+  const mockPlanetsPagination = jest.fn();
+  const mockCharactersPagination = jest.fn();
+
+  return {
+    __esModule: true,
+    default: () => ({
+      planetsPagination: mockPlanetsPagination,
+      charactersPagination: mockCharactersPagination,
+    }),
+    mockPlanetsPagination,
+    mockCharactersPagination,
+  };
+});
+
+describe("Given a pagination component", () => {
+  test("When rendering, then it should have the correct props", () => {
     render(<Pagination typeOfPagination="planets" />);
-    const paginationContainer = screen.getByTestId("pag-container");
-    expect(paginationContainer).toBeInTheDocument();
+    const containerElement = screen.getByTestId("pag-container");
+    const buttonLeft = screen.getByTestId("button-left");
+    const buttonRight = screen.getByTestId("button-right");
+    expect(containerElement).toBeInTheDocument();
+    expect(buttonLeft).toBeInTheDocument();
+    expect(buttonRight).toBeInTheDocument();
   });
 
-  test("When the user clicks a previous page button, then it should change global context pages", async () => {
+  test("When clicking left arrow with planets parameter, then it should execute its on-click function", () => {
+    const appHook = require("../../hooks/useAppHook");
+    const mockPlanetsPagination = appHook.mockPlanetsPagination;
+
     render(<Pagination typeOfPagination="planets" />);
-    const buttonElement = screen.getByTestId("button");
-    interface WrapperProps {
-      children: JSX.Element | JSX.Element[];
-    }
-    const Wrapper = ({ children }: WrapperProps) => (
-      <AppProvider currentPagePlanets={5}>{children}</AppProvider>
-    );
-    const { result } = renderHook(useAppHook, { wrapper: Wrapper });
-    await act(async () => {
-      result.current.charactersPagination("prev");
-      expect(result.current.state.currentPagePlanets).toBe(5);
-    });
-    userEvent.click(buttonElement);
-    await waitFor(() => {
-      expect(result.current.state.currentPagePlanets).toBe(4);
-    });
+    userEvent.click(screen.getByTestId("button-left"));
+    expect(mockPlanetsPagination).toHaveBeenCalledWith("prev");
+  });
+
+  test("When clicking left arrow with characters parameter, then it should execute its on-click function", () => {
+    const appHook = require("../../hooks/useAppHook");
+    const mockCharactersPagination = appHook.mockCharactersPagination;
+
+    render(<Pagination typeOfPagination="characters" />);
+    userEvent.click(screen.getByTestId("button-left"));
+    expect(mockCharactersPagination).toHaveBeenCalledWith("prev");
+  });
+
+  test("When clicking right arrow with planets parameter, then it should execute its on-click function", () => {
+    const appHook = require("../../hooks/useAppHook");
+    const mockPlanetsPagination = appHook.mockPlanetsPagination;
+
+    render(<Pagination typeOfPagination="planets" />);
+    userEvent.click(screen.getByTestId("button-right"));
+    expect(mockPlanetsPagination).toHaveBeenCalledWith("next");
+  });
+
+  test("When clicking right arrow with characters parameter, then it should execute its on-click function", () => {
+    const appHook = require("../../hooks/useAppHook");
+    const mockCharactersPagination = appHook.mockCharactersPagination;
+
+    render(<Pagination typeOfPagination="characters" />);
+    userEvent.click(screen.getByTestId("button-right"));
+    expect(mockCharactersPagination).toHaveBeenCalledWith("next");
   });
 });

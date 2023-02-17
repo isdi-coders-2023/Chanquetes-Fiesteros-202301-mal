@@ -7,9 +7,15 @@ import AppContext from "../../store/contexts/app.context";
 
 interface PaginationProps {
   typeOfPagination: "planets" | "characters";
+  planetsPaginationForTesting?: () => void;
+  charactersPaginationForTesting?: () => void;
 }
 
-const Pagination: FC<PaginationProps> = ({ typeOfPagination }) => {
+const Pagination: FC<PaginationProps> = ({
+  typeOfPagination,
+  planetsPaginationForTesting,
+  charactersPaginationForTesting,
+}) => {
   const { planetsPagination, charactersPagination } = useAppHook();
   const { state } = useContext(AppContext);
   const { currentPageCharacters, currentPagePlanets } = state;
@@ -17,7 +23,7 @@ const Pagination: FC<PaginationProps> = ({ typeOfPagination }) => {
   return (
     <div className="pagination__container" data-testid="pag-container">
       <FontAwesomeIcon
-        data-testid="button"
+        data-testid="button-left"
         className="pagination__item"
         icon={solid("angle-left")}
         onClick={() => {
@@ -34,6 +40,7 @@ const Pagination: FC<PaginationProps> = ({ typeOfPagination }) => {
         }`}</p>
       </div>
       <FontAwesomeIcon
+        data-testid="button-right"
         className="pagination__item"
         icon={solid("angle-right")}
         onClick={() => {
