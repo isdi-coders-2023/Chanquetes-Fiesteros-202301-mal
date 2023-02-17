@@ -5,6 +5,7 @@ import useAppHook from "../../hooks/useAppHook";
 const Characters = () => {
   const { state, getCharactersList } = useAppHook();
 
+  //
   useEffect(() => {
     getCharactersList();
   }, [getCharactersList]);
