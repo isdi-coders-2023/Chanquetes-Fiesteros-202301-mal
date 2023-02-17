@@ -7,7 +7,7 @@ const appReducer = (state: AppState, action: AppActions): AppState => {
   switch (action.type) {
     // Plantes actions
     case ActionTypes.INITIALIZE_PLANETS:
-      return { ...state, planets: planets };
+      return { ...state, planets: action.payload };
     case ActionTypes.REMOVE_PLANET:
       const newPlanets = planets.filter(
         (planet) => planet.id !== action.payload
@@ -16,7 +16,7 @@ const appReducer = (state: AppState, action: AppActions): AppState => {
 
     // Characters actions
     case ActionTypes.INITIALIZE_CHARACTERS:
-      return { ...state, characters: characters };
+      return { ...state, characters: action.payload };
     case ActionTypes.REMOVE_CHARACTER:
       const newCharacters = characters.filter(
         (character) => character.id !== action.payload
