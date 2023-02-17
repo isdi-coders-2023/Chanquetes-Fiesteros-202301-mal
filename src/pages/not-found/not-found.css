@@ -37,7 +37,7 @@
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
-  animation: rotateIn 0.5s ease-out;
+  animation: rotateIn 800ms ease-out;
   overflow: hidden;
 }
 

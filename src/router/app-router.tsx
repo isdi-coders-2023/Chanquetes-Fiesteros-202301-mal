@@ -1,7 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import Layout from "../pages/Layout/Layout";
 import NotFound from "../pages/not-found/not-found";
-import PlanetDetails from "../pages/planet-details/planet-details";
+import Characters from "../pages/characters/characters";
 
 const router = createBrowserRouter([
   {
@@ -10,8 +10,8 @@ const router = createBrowserRouter([
     errorElement: <NotFound />,
     children: [
       {
-        path: "planet-details",
-        element: <PlanetDetails />,
+        path: "characters",
+        element: <Characters />,
       },
     ],
   },
