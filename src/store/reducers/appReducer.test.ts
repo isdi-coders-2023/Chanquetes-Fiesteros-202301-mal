@@ -72,14 +72,14 @@ describe("Given the app reducer", () => {
       type: ActionTypes.INITIALIZE_PLANETS,
       payload: mockPlanets.planets,
     };
-    const updateState = appReducer(mockDefault, planetsAction);
-    expect(updateState.planets).toEqual(mockPlanets.planets);
+    const updateState = appReducer(mockPlanets, planetsAction);
+    expect(updateState).toEqual(mockPlanets);
   });
 
   test("When the reducer receives REMOVE_PLANET action, then the new state shouldn't have the planet given", () => {
     const planetsAction: AppActions = {
       type: ActionTypes.REMOVE_PLANET,
-      payload: 1,
+      payload: 2,
     };
     const updateState = appReducer(mockPlanets, planetsAction);
     expect(updateState.planets).toHaveLength(1);
@@ -90,14 +90,14 @@ describe("Given the app reducer", () => {
       type: ActionTypes.INITIALIZE_CHARACTERS,
       payload: mockCharacters.characters,
     };
-    const updateState = appReducer(mockDefault, planetsAction);
-    expect(updateState.characters).toEqual(mockCharacters.characters);
+    const updateState = appReducer(mockCharacters, planetsAction);
+    expect(updateState).toEqual(mockCharacters);
   });
 
   test("When the reducer receives REMOVE_CHARACTERS action, then the new state shouldn't have the character given", () => {
     const charactersAction: AppActions = {
       type: ActionTypes.REMOVE_CHARACTER,
-      payload: 1,
+      payload: 2,
     };
     const updateState = appReducer(mockCharacters, charactersAction);
     expect(updateState.characters).toHaveLength(1);
@@ -116,7 +116,12 @@ describe("Given the app reducer", () => {
     const paginationAction: AppActions = {
       type: ActionTypes.GO_TO_PREV_PAGE,
     };
-    const updateState = appReducer(mockDefault, paginationAction);
-    expect(updateState.pagination).toBe(mockDefault.pagination - 1);
+    const paginationOnTwo: AppState = {
+      pagination: 2,
+      characters: [],
+      planets: [],
+    };
+    const updateState = appReducer(paginationOnTwo, paginationAction);
+    expect(updateState.pagination).toBe(paginationOnTwo.pagination - 1);
   });
 });

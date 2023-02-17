@@ -6,7 +6,7 @@ import {
 } from "../../types/appInterfaces";
 
 const appReducer = (state: AppState, action: AppActions): AppState => {
-  const { pagination } = state;
+  const { characters, planets, pagination } = state;
 
   let allPlanets: PlanetInterface[] = [];
   let allCharacters: CharactersInterface[] = [];
@@ -15,9 +15,9 @@ const appReducer = (state: AppState, action: AppActions): AppState => {
     // Plantes actions
     case ActionTypes.INITIALIZE_PLANETS:
       allPlanets = action.payload;
-      return { ...state, planets: allPlanets };
+      return { ...state, planets: planets };
     case ActionTypes.REMOVE_PLANET:
-      const newPlanets = allPlanets.filter(
+      const newPlanets = planets.filter(
         (planet) => planet.id !== action.payload
       );
       return { ...state, planets: newPlanets };
@@ -25,9 +25,9 @@ const appReducer = (state: AppState, action: AppActions): AppState => {
     // Characters actions
     case ActionTypes.INITIALIZE_CHARACTERS:
       allCharacters = action.payload;
-      return { ...state, characters: allCharacters };
+      return { ...state, characters: characters };
     case ActionTypes.REMOVE_CHARACTER:
-      const newCharacters = allCharacters.filter(
+      const newCharacters = characters.filter(
         (character) => character.id !== action.payload
       );
       return { ...state, characters: newCharacters };
