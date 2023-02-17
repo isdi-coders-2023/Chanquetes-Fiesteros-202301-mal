@@ -11,7 +11,7 @@ interface DataProviderProps {
 const AppProvider: FC<DataProviderProps> = ({ children }) => {
   const [state, dispatch] = useReducer<Reducer<AppState, AppActions>>(
     appReducer,
-    { planets: [], characters: [] }
+    { planets: [], characters: [], pagination: 1 }
   );
 
   return (
