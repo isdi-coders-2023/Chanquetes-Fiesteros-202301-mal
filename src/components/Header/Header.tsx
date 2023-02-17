@@ -5,16 +5,22 @@ const Header = () => {
   return (
     <header className="header__container">
       <div className="header-cont__logo">
-        <img src="./assets/logo.png" alt="rick and morty logo" />
+        <img src="../assets/logo.png" alt="rick and morty logo" />
       </div>
       <input type="checkbox" id="hamb-menu" />
       <label htmlFor="hamb-menu">
-        <img src="./assets/hamb-menu.svg" alt="" />
+        <img src="../assets/hamb-menu.svg" alt="" />
       </label>
       <nav className="header-cont__navbar">
         <ul>
           <li>
             <Link to={"./"}>Home</Link>
+          </li>
+          <li>
+            <Link to={"characters"}>Characters</Link>
+          </li>
+          <li>
+            <Link to={"planets"}>Planets</Link>
           </li>
           <li>
             <Link to={"favorites"}>Favorites</Link>
