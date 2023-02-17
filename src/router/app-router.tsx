@@ -1,9 +1,10 @@
 import { createBrowserRouter } from "react-router-dom";
-import Layout from "../pages/Layout/Layout";
-import NotFound from "../pages/NotFound/NotFound";
-import Home from "../pages/Home/Home";
-import Contact from "../pages/Contact/Contact";
-import Favorites from "../pages/Favorites/Favorites";
+import Layout from "../pages/layout/layout";
+import NotFound from "../pages/not-found/not-found";
+import Home from "../pages/home/home";
+import Contact from "../pages/contact/contact";
+import Favorites from "../pages/favorites/favorites";
+import PlanetDetails from "../pages/planet-details/planet-details";
 
 const router = createBrowserRouter([
   {
@@ -22,6 +23,10 @@ const router = createBrowserRouter([
       {
         path: "favorites",
         element: <Favorites />,
+      },
+      {
+        path: "planet-details",
+        element: <PlanetDetails />,
       },
     ],
   },
