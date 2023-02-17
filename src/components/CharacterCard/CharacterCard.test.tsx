@@ -1,9 +1,10 @@
 import { render, screen } from "@testing-library/react";
-import { CharactersInterface } from "../../types/appInterfaces";
+import { CharacterInterface } from "../../types/appInterfaces";
 import CharacterCard from "./CharacterCard";
+import { MemoryRouter } from "react-router-dom";
 
-describe("Given a Card component", () => {
-  const mockCharacter: CharactersInterface = {
+describe("Given a character card component", () => {
+  const mockCharacter: CharacterInterface = {
     id: 1,
     name: "Rick Sanchez",
     created: "",
@@ -15,7 +16,9 @@ describe("Given a Card component", () => {
   };
 
   test("When the Card render, then it must be a paragraph in the document", () => {
-    render(<CharacterCard characters={mockCharacter} />);
+    render(<CharacterCard character={mockCharacter} />, {
+      wrapper: MemoryRouter,
+    });
     const paragraph = screen.getByRole("paragraph");
     expect(paragraph).toBeInTheDocument();
   });

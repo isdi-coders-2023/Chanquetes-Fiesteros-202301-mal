@@ -70,6 +70,7 @@
 .characters-card-info__data p {
   font-size: 1.4rem;
   font-weight: 700;
+  color: #272727;
 }
 
 .characters-card-info__data span {
@@ -77,4 +78,6 @@
   font-size: 1.1rem;
   font-weight: 300;
   margin: 0 0 1rem 0.8rem;
+  color: #272727;
+  text-transform: capitalize;
 }
