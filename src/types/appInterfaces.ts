@@ -1,6 +1,7 @@
 export interface AppState {
   planets: PlanetInterface[];
   characters: CharactersInterface[];
+  pagination: number;
 }
 
 export interface PlanetInterface {
