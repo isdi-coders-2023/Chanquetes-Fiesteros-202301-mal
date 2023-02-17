@@ -1,20 +1,12 @@
 import { ActionTypes, AppActions } from "../actions/actions";
-import {
-  AppState,
-  CharactersInterface,
-  PlanetInterface,
-} from "../../types/appInterfaces";
+import { AppState } from "../../types/appInterfaces";
 
 const appReducer = (state: AppState, action: AppActions): AppState => {
   const { characters, planets, pagination } = state;
 
-  let allPlanets: PlanetInterface[] = [];
-  let allCharacters: CharactersInterface[] = [];
-
   switch (action.type) {
     // Plantes actions
     case ActionTypes.INITIALIZE_PLANETS:
-      allPlanets = action.payload;
       return { ...state, planets: planets };
     case ActionTypes.REMOVE_PLANET:
       const newPlanets = planets.filter(
@@ -24,7 +16,6 @@ const appReducer = (state: AppState, action: AppActions): AppState => {
 
     // Characters actions
     case ActionTypes.INITIALIZE_CHARACTERS:
-      allCharacters = action.payload;
       return { ...state, characters: characters };
     case ActionTypes.REMOVE_CHARACTER:
       const newCharacters = characters.filter(
