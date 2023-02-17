@@ -8,7 +8,7 @@ interface AppContextProps {
 }
 
 const AppContext = createContext<AppContextProps>({
-  state: { planets: [], characters: [] },
+  state: { planets: [], characters: [], pagination: 1 },
   dispatch: () => {},
 });
 

@@ -44,7 +44,7 @@ footer.footer__cont {
   margin: 1.5rem 1.5rem;
 }
 
-@media (min-width: 1080px) {
+@media (min-width: 1024px) {
   footer.footer__cont {
     display: flex;
     justify-content: space-between;

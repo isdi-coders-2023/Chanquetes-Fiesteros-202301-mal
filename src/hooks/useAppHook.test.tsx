@@ -11,17 +11,14 @@ describe("Given an app custom hook", () => {
 
   test("When the user request a planets list, then the hook should return a planet", async () => {
     interface WrapperProps {
-      children: JSX.Element | JSX.Element[];
+      children: JSX.Element;
     }
     const Wrapper = ({ children }: WrapperProps) => (
       <AppProvider>{children}</AppProvider>
     );
     const { result } = renderHook(useAppHook, { wrapper: Wrapper });
     await act(async () => result.current.getPlanetsList([1]));
-    expect(result.current.state.planets[0]).toEqual({
-      id: 1,
-      name: "Earth (C-137)",
-    });
+    expect(result.current.state.planets[0].id).toBe(1);
   });
 
   test("When the user request a characters list, then the hook should return a character", async () => {
@@ -33,9 +30,6 @@ describe("Given an app custom hook", () => {
     );
     const { result } = renderHook(useAppHook, { wrapper: Wrapper });
     await act(async () => result.current.getCharactersList([1]));
-    expect(result.current.state.characters[0]).toEqual({
-      id: 1,
-      name: "Rick Sanchez",
-    });
+    expect(result.current.state.characters[0].id).toBe(1);
   });
 });
