@@ -7,15 +7,9 @@ import AppContext from "../../store/contexts/app.context";
 
 interface PaginationProps {
   typeOfPagination: "planets" | "characters";
-  planetsPaginationForTesting?: () => void;
-  charactersPaginationForTesting?: () => void;
 }
 
-const Pagination: FC<PaginationProps> = ({
-  typeOfPagination,
-  planetsPaginationForTesting,
-  charactersPaginationForTesting,
-}) => {
+const Pagination: FC<PaginationProps> = ({ typeOfPagination }) => {
   const { planetsPagination, charactersPagination } = useAppHook();
   const { state } = useContext(AppContext);
   const { currentPageCharacters, currentPagePlanets } = state;
