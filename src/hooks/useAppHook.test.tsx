@@ -17,7 +17,7 @@ describe("Given an app custom hook", () => {
       <AppProvider>{children}</AppProvider>
     );
     const { result } = renderHook(useAppHook, { wrapper: Wrapper });
-    await act(async () => result.current.getPlanetsList([1]));
+    await act(async () => result.current.getPlanetsList());
     expect(result.current.state.planets[0].id).toBe(1);
   });
 
@@ -29,7 +29,7 @@ describe("Given an app custom hook", () => {
       <AppProvider>{children}</AppProvider>
     );
     const { result } = renderHook(useAppHook, { wrapper: Wrapper });
-    await act(async () => result.current.getCharactersList([1]));
+    await act(async () => result.current.getCharactersList());
     expect(result.current.state.characters[0].id).toBe(1);
   });
 });
