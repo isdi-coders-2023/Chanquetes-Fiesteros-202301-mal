@@ -1,25 +1,40 @@
-import { CharactersInterface, PlanetInterface } from "../types/appInterfaces";
+import {
+  CharactersInterface,
+  CharacterInterface,
+  PlanetsInterface,
+  PlanetInterface,
+} from "../types/appInterfaces";
 
-export const getPlanetsData = async (planets: number[]) => {
-  const planetsList: PlanetInterface[] = [];
-  for (let planet of planets) {
-    const response = await fetch(
-      `https://rickandmortyapi.com/api/location/${planet}`
-    );
-    const planetData: PlanetInterface = await response.json();
-    planetsList.push(planetData);
-  }
+export const getPlanetsData = async (page: number) => {
+  const response = await fetch(
+    `https://rickandmortyapi.com/api/location?page=${page}`
+  );
+  const planetsData: PlanetsInterface = await response.json();
+  const planetsList: PlanetInterface[] = planetsData.results;
   return planetsList;
 };
 
-export const getCharactersData = async (residents: number[]) => {
-  const residentsList: CharactersInterface[] = [];
-  for (let resident of residents) {
-    const response = await fetch(
-      `https://rickandmortyapi.com/api/character/${resident}`
-    );
-    const residentsData = await response.json();
-    residentsList.push(residentsData);
-  }
-  return residentsList;
+export const getCharactersData = async (page: number) => {
+  const response = await fetch(
+    `https://rickandmortyapi.com/api/character?page=${page}`
+  );
+  const charactersData: CharactersInterface = await response.json();
+  const charactersList: CharacterInterface[] = charactersData.results;
+  return charactersList;
+};
+
+export const getPlanetById = async (id: number) => {
+  const response = await fetch(
+    `https://rickandmortyapi.com/api/location/${id}`
+  );
+  const planetData: PlanetInterface = await response.json();
+  return planetData;
+};
+
+export const getCharacterById = async (id: number) => {
+  const response = await fetch(
+    `https://rickandmortyapi.com/api/character/${id}`
+  );
+  const characterData: CharacterInterface = await response.json();
+  return characterData;
 };

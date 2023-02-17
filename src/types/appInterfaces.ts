@@ -1,9 +1,13 @@
 export interface AppState {
   planets: PlanetInterface[];
-  characters: CharactersInterface[];
-  pagination: number;
+  characters: CharacterInterface[];
+  currentPagePlanets: number;
+  currentPageCharacters: number;
 }
 
+export interface PlanetsInterface {
+  results: PlanetInterface[];
+}
 export interface PlanetInterface {
   id: number;
   name: string;
@@ -14,6 +18,9 @@ export interface PlanetInterface {
 }
 
 export interface CharactersInterface {
+  results: CharacterInterface[];
+}
+export interface CharacterInterface {
   id: number;
   name: string;
   status: string;
