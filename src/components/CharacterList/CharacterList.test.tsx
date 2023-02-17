@@ -1,9 +1,10 @@
 import { render, screen } from "@testing-library/react";
-import { CharactersInterface } from "../../types/appInterfaces";
+import { MemoryRouter } from "react-router-dom";
+import { CharacterInterface } from "../../types/appInterfaces";
 import CharacterList from "./CharacterList";
 
 describe("Given a CharactersList component", () => {
-  const mockCharacters: CharactersInterface[] = [
+  const mockCharacters: CharacterInterface[] = [
     {
       id: 1,
       name: "Rick Sanchez",
@@ -27,7 +28,9 @@ describe("Given a CharactersList component", () => {
   ];
 
   test("When the component renders, then it should render as many character cards as given by props", () => {
-    render(<CharacterList characters={mockCharacters} />);
+    render(<CharacterList characters={mockCharacters} />, {
+      wrapper: MemoryRouter,
+    });
     const characterCards = screen.getAllByRole("listitem");
     expect(characterCards.length).toBe(mockCharacters.length);
   });
