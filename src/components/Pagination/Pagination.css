@@ -2,7 +2,7 @@
   width: 100%;
   display: flex;
   justify-content: center;
-  gap: 100px;
+  gap: 20px;
 }
 
 .pagination__item {
@@ -15,4 +15,14 @@
 .pagination__item:hover {
   color: hsl(120, 90%, 65%);
   transform: scale(1.1);
+}
+
+.pagination__page-number-container {
+  width: 100px;
+}
+
+.pagination__page-number {
+  font-size: 80px;
+  color: hsl(120, 70%, 50%);
+  text-align: center;
 }

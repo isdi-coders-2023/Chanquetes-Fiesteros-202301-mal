@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import "./not-found.css";
+import "./NotFoundPage.css";
 
 const NotFound = () => {
   return (
@@ -9,8 +9,7 @@ const NotFound = () => {
           <span>44</span>
         </div>
         <p role={"paragraph"}>
-          The page you are trying to search hae been moved to another
-          universe...
+          The page you are trying to reach has been moved to another universe.
         </p>
         <Link className="button" to={"/"}>
           Return to real dimension

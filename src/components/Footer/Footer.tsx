@@ -6,13 +6,19 @@ const Footer = () => {
     <footer className="footer__cont">
       <img
         className="footer-cont__logo"
-        src="./assets/logo.svg"
+        src="../assets/logo.svg"
         alt="rick-and-morty-logo"
       />
       <nav className="footer-cont__navbar">
         <ul>
           <li>
             <Link to={"./"}>Home</Link>
+          </li>
+          <li>
+            <Link to={"characters"}>Characters</Link>
+          </li>
+          <li>
+            <Link to={"planets"}>Planets</Link>
           </li>
           <li>
             <Link to={"favorites"}>Favorites</Link>
@@ -36,7 +42,7 @@ const Footer = () => {
             >
               <img
                 className="social-container__logo"
-                src="./assets/github-logo.png"
+                src="../assets/github-logo.png"
                 alt="github-logo"
               />
             </a>
@@ -45,7 +51,7 @@ const Footer = () => {
             <a href="https://github.com/Huck8" target="_blank" rel="noreferrer">
               <img
                 className="social-container__logo"
-                src="./assets/github-logo.png"
+                src="../assets/github-logo.png"
                 alt="github-logo"
               />
             </a>
@@ -58,7 +64,7 @@ const Footer = () => {
             >
               <img
                 className="social-container__logo"
-                src="./assets/github-logo.png"
+                src="../assets/github-logo.png"
                 alt="github-logo"
               />
             </a>
