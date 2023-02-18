@@ -2,6 +2,7 @@ import { useCallback, useContext } from "react";
 import {
   getCharacterById,
   getCharactersData,
+  getPlanetById,
   getPlanetsData,
 } from "../api/data";
 import { ActionTypes, AppActions } from "../store/actions/actions";
@@ -53,6 +54,18 @@ const useAppHook = () => {
       : dispatch(getPrevCharacters);
   };
 
+  const getPlanetDetails = useCallback(
+    async (planetid: number) => {
+      const planetsData = await getPlanetById(planetid);
+      const getPlanetDetails: AppActions = {
+        type: ActionTypes.GET_PLANET_DETAILS,
+        payload: planetsData,
+      };
+      dispatch(getPlanetDetails);
+    },
+    [dispatch]
+  );
+
   const getCharacterDetails = useCallback(
     async (characterid: number) => {
       const charactersData = await getCharacterById(characterid);
@@ -71,6 +84,7 @@ const useAppHook = () => {
     getCharactersList,
     planetsPagination,
     charactersPagination,
+    getPlanetDetails,
     getCharacterDetails,
   };
 };
