@@ -3,6 +3,7 @@ import Layout from "../pages/Layout/Layout";
 import NotFound from "../pages/NotFound/NotFoundPage";
 import Characters from "../pages/Characters/CharactersPage";
 import Home from "../pages/Home/HomePage";
+import CharacterDetailsPage from "../pages/CharacterDetails/CharacterDetailsPage";
 
 const router = createBrowserRouter([
   {
@@ -17,6 +18,10 @@ const router = createBrowserRouter([
       {
         path: "characters",
         element: <Characters />,
+      },
+      {
+        path: "characters/:id",
+        element: <CharacterDetailsPage />,
       },
     ],
   },
