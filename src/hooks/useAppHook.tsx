@@ -1,5 +1,9 @@
 import { useCallback, useContext } from "react";
-import { getCharactersData, getPlanetsData } from "../api/data";
+import {
+  getCharacterById,
+  getCharactersData,
+  getPlanetsData,
+} from "../api/data";
 import { ActionTypes, AppActions } from "../store/actions/actions";
 import AppContext from "../store/contexts/app.context";
 
@@ -49,7 +53,17 @@ const useAppHook = () => {
       : dispatch(getPrevCharacters);
   };
 
-  const getCharacterDetails = async (id: number) => {};
+  const getCharacterDetails = useCallback(
+    async (characterid: number) => {
+      const charactersData = await getCharacterById(characterid);
+      const getCharacterDetails: AppActions = {
+        type: ActionTypes.GET_CHARACTER_DETAILS,
+        payload: charactersData,
+      };
+      dispatch(getCharacterDetails);
+    },
+    [dispatch]
+  );
 
   return {
     state,

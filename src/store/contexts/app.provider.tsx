@@ -14,6 +14,24 @@ const AppProvider: FC<DataProviderProps> = ({ children }) => {
     {
       planets: [],
       characters: [],
+      planetDetails: {
+        id: 0,
+        name: "",
+        type: "",
+        dimension: "",
+        created: "",
+        residents: [""],
+      },
+      characterDetails: {
+        id: 0,
+        name: "",
+        status: "",
+        species: "",
+        gender: "",
+        created: "",
+        image: "",
+        url: "",
+      },
       currentPagePlanets: 1,
       currentPageCharacters: 1,
     }

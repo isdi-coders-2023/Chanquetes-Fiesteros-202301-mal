@@ -26,6 +26,8 @@ const appReducer = (state: AppState, action: AppActions): AppState => {
       return planetsPages > 1
         ? { ...state, currentPagePlanets: planetsPages - 1 }
         : { ...state, currentPagePlanets: planetsPages };
+    case ActionTypes.GET_PLANET_DETAILS:
+      return { ...state, planetDetails: action.payload };
 
     // Characters actions
     case ActionTypes.GET_CHARACTERS:
@@ -43,6 +45,8 @@ const appReducer = (state: AppState, action: AppActions): AppState => {
       return charactersPages > 1
         ? { ...state, currentPageCharacters: charactersPages - 1 }
         : { ...state, currentPageCharacters: charactersPages };
+    case ActionTypes.GET_CHARACTER_DETAILS:
+      return { ...state, characterDetails: action.payload };
 
     default:
       return state;

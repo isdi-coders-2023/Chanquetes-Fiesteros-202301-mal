@@ -1,6 +1,8 @@
 export interface AppState {
   planets: PlanetInterface[];
   characters: CharacterInterface[];
+  planetDetails: PlanetInterface;
+  characterDetails: CharacterInterface;
   currentPagePlanets: number;
   currentPageCharacters: number;
 }
