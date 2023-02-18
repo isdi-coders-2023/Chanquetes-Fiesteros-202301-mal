@@ -1,24 +1,38 @@
 @import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&display=swap");
 
 .contact__container {
-  color: white;
+  width: 100%;
+  color: var(--sec-color);
   font-family: "IBM Plex Mono", monospace;
   margin: 0 auto;
   text-align: center;
   padding: 1rem;
   font-weight: 400;
 }
+
+.contact__container h1 {
+  font-family: "Schwifty", monospace;
+  font-size: 3.5rem;
+  color: var(--main-color);
+  margin: 0 auto;
+}
+
 .contact__text {
   margin: 2rem auto;
-  font-size: 23px;
+  font-size: 1.4rem;
   max-width: 45rem;
 }
 
-.contact__img {
-  width: 90%;
-  max-width: 31rem;
+.contact__info {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  align-items: center;
+  margin: 2rem 0;
+  gap: 20px;
 }
 
-.contact__mail {
-  color: #87f54e;
+.contact__info a {
+  font-size: 2rem;
+  color: var(--main-color);
 }

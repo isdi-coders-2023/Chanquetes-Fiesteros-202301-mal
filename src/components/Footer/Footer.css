@@ -1,6 +1,8 @@
 footer {
   background-color: hsl(0, 0%, 15%);
   min-width: 220px;
+  position: relative;
+  z-index: 10;
 }
 
 footer.footer__cont {
@@ -24,11 +26,11 @@ footer.footer__cont {
 }
 
 .footer-cont__navbar ul li a {
-  color: white;
+  color: var(--sec-color);
 }
 
 .social-container__title {
-  color: white;
+  color: var(--sec-color);
   padding-top: 1rem;
   text-decoration: underline;
 }

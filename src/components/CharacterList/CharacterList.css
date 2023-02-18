@@ -20,6 +20,6 @@
 .characters__container h1 {
   font-family: "Schwifty", monospace;
   font-size: 3.5rem;
-  color: hsl(120, 70%, 50%);
+  color: var(--main-color);
   margin: 0 auto;
 }

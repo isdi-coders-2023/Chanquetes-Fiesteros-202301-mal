@@ -14,8 +14,8 @@ const CharacterList: FC<CharacterListProps> = ({ characters }) => {
       <h1>Characters</h1>
       <Pagination typeOfPagination={"characters"} />
       <ul className="characters__list">
-        {characters.map((character, i) => (
-          <li key={`%${i}-${character.name}`}>
+        {characters.map((character) => (
+          <li key={`${character.id}-${character.name}`}>
             <CharacterCard character={character} />
           </li>
         ))}
