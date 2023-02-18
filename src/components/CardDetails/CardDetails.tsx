@@ -2,7 +2,7 @@ import "../CardDetails/CardDetails.css";
 
 const CardDetails = () => {
   return (
-    <div className="character__container">
+    <article className="character__container">
       <img className="character__planet" src="./assets/planet-2.png" alt="" />
       <img className="character__img" src="./assets/1.jpeg" alt="" />
       <div className="character__info-block">
@@ -24,7 +24,7 @@ const CardDetails = () => {
           <img src="./assets/rockect.png" alt="" />
         </div>
       </div>
-    </div>
+    </article>
   );
 };
 
