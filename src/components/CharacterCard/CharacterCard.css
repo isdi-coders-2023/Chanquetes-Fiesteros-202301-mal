@@ -27,23 +27,23 @@
   padding: 0.5rem;
   border-radius: 50%;
   background-color: hsl(0, 0%, 15%);
-  color: #fff;
+  color: var(--sec-color);
   cursor: pointer;
   transition: all 100ms ease-in-out;
 }
 .fav-icon:hover {
-  color: hsl(120, 70%, 50%);
+  color: var(--main-color-hover);
   transform: scale(1.05);
 }
 .fav-icon--in-favorites {
-  color: hsl(120, 70%, 50%);
+  color: var(--main-color-hover);
 }
 
 .characters-card__info {
   position: relative;
   height: 35%;
   padding: 1.5rem 1.2rem 0.5rem;
-  background-color: hsl(120, 70%, 50%);
+  background-color: var(--main-color);
   border-radius: 0 0 1rem 1rem;
 }
 
@@ -55,15 +55,15 @@
   left: 65%;
   font-size: 1.5rem;
   font-weight: 700;
-  color: hsl(120, 70%, 50%);
+  color: var(--main-color);
   background-color: #272727;
-  border: 3px solid hsl(120, 70%, 50%);
+  border: 3px solid var(--main-color);
   cursor: pointer;
   transition: all 100ms ease-in-out;
 }
 
 .characters-card__info button:hover {
-  box-shadow: 0 0 10px 5px hsl(120, 65%, 30%);
+  box-shadow: 0 0 10px 5px var(--main-color-hover);
   transform: scale(1.05);
 }
 

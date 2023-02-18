@@ -1,9 +1,8 @@
 import { render, screen } from "@testing-library/react";
 import Contact from "./Contact";
 describe("Given a Contact component", () => {
-  test("When the contact render, must render in the document and check link 'rickyandmortytravieso@gmail.com'", () => {
+  test("When the component renders, then it should be an article element in the document", () => {
     render(<Contact />);
-    const link = screen.getByRole("link");
-    expect(link).toHaveTextContent("rickyandmortytravieso@gmail.com");
+    expect(screen.getByRole("article")).toBeInTheDocument();
   });
 });

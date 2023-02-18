@@ -55,14 +55,14 @@
 .header-cont__navbar ul li a {
   font-size: 1.8rem;
   font-weight: 600;
-  color: hsl(100, 89%, 63%);
+  color: var(--main-color-hover);
 }
 .header-cont__navbar ul li a::after {
   content: "";
   display: block;
   height: 3px;
   width: 0px;
-  background-color: hsl(100, 89%, 63%);
+  background-color: var(--main-color-hover);
   transition: 200ms ease-in-out;
 }
 

@@ -1,3 +1,9 @@
+:root {
+  --main-color: hsl(120, 70%, 50%);
+  --main-color-hover: hsl(120, 90%, 65%);
+  --sec-color: hsl(255, 100%, 100%);
+}
+
 @font-face {
   font-family: "IBM-Plex-Mono";
   src: local("IBM-Plex-Mono"),
