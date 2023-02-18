@@ -2,11 +2,18 @@
   width: 280px;
   height: 470px;
   border-radius: 1rem;
+  box-shadow: 0 0 12px 1px var(--main-color-hover);
+  transition: all 200ms ease-in-out;
+}
+
+.characters-card__container:hover {
+  transform: scale(1.01);
 }
 
 .characters-card__img-and-fav {
   position: relative;
-  height: 65%;
+  height: 55%;
+  background-color: #272727;
   border-radius: 1rem 1rem 0 0;
 }
 
@@ -16,13 +23,22 @@
   background-color: hsl(0, 0%, 20%);
   object-fit: cover;
   object-position: center;
-  border-radius: 1rem 1rem 0 0;
+  border-radius: 1rem 1rem 20% 20%;
+}
+
+.characters-card__img-and-fav span {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: black;
 }
 
 .fav-icon {
   position: absolute;
   top: 8px;
-  left: 8px;
+  right: 8px;
   font-size: 1.8rem;
   padding: 0.5rem;
   border-radius: 50%;
@@ -41,43 +57,39 @@
 
 .characters-card__info {
   position: relative;
-  height: 35%;
-  padding: 1.5rem 1.2rem 0.5rem;
-  background-color: var(--main-color);
-  border-radius: 0 0 1rem 1rem;
-}
-
-.characters-card__info button {
-  position: absolute;
-  padding: 1.2rem;
-  border-radius: 50%;
-  bottom: 75%;
-  left: 65%;
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: var(--main-color);
+  height: 45%;
+  padding: 1rem;
   background-color: #272727;
-  border: 3px solid var(--main-color);
-  cursor: pointer;
-  transition: all 100ms ease-in-out;
-}
-
-.characters-card__info button:hover {
-  box-shadow: 0 0 10px 5px var(--main-color-hover);
-  transform: scale(1.05);
-}
-
-.characters-card-info__data p {
-  font-size: 1.4rem;
-  font-weight: 700;
-  color: #272727;
-}
-
-.characters-card-info__data span {
-  display: block;
-  font-size: 1.1rem;
-  font-weight: 300;
-  margin: 0 0 1rem 0.8rem;
-  color: #272727;
+  border-radius: 0 0 1rem 1rem;
   text-transform: capitalize;
+}
+
+.character__name {
+  display: block;
+  height: 60px;
+  margin: 0.5rem 0 0.2rem;
+  overflow: hidden;
+  font-size: 1.4rem;
+  text-align: center;
+  color: var(--sec-color);
+}
+
+.character__other-data {
+  display: flex;
+  flex-direction: column;
+}
+
+.character__other-data p {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--main-color);
+  text-decoration: underline;
+}
+
+.character__other-data span {
+  display: block;
+  font-size: 1rem;
+  font-weight: 300;
+  color: var(--main-color-hover);
+  margin: 0 0 1rem 1rem;
 }
