@@ -32,4 +32,56 @@ describe("Given an app custom hook", () => {
     await act(async () => result.current.getCharactersList());
     expect(result.current.state.characters[0].id).toBe(1);
   });
+
+  test("When the user paginates planets list, then the hook should update the current page planets", async () => {
+    interface WrapperProps {
+      children: JSX.Element;
+    }
+    const Wrapper = ({ children }: WrapperProps) => (
+      <AppProvider>{children}</AppProvider>
+    );
+    const { result } = renderHook(useAppHook, { wrapper: Wrapper });
+    await act(async () => result.current.planetsPagination("next"));
+    expect(result.current.state.currentPagePlanets).toBe(2);
+    await act(async () => result.current.planetsPagination("prev"));
+    expect(result.current.state.currentPagePlanets).toBe(1);
+  });
+
+  test("When the user paginates characters list, then the hook should update the current page characters", async () => {
+    interface WrapperProps {
+      children: JSX.Element | JSX.Element[];
+    }
+    const Wrapper = ({ children }: WrapperProps) => (
+      <AppProvider>{children}</AppProvider>
+    );
+    const { result } = renderHook(useAppHook, { wrapper: Wrapper });
+    await act(async () => result.current.charactersPagination("next"));
+    expect(result.current.state.currentPageCharacters).toBe(2);
+    await act(async () => result.current.charactersPagination("prev"));
+    expect(result.current.state.currentPageCharacters).toBe(1);
+  });
+
+  test("When the user requests details for a character, then the hook should return the details for that character", async () => {
+    interface WrapperProps {
+      children: JSX.Element;
+    }
+    const Wrapper = ({ children }: WrapperProps) => (
+      <AppProvider>{children}</AppProvider>
+    );
+    const { result } = renderHook(useAppHook, { wrapper: Wrapper });
+    await act(async () => result.current.getCharacterDetails(1));
+    expect(result.current.state.characterDetails.id).toBe(1);
+  });
+
+  test("When the user requests details for a planet, then the hook should return the details for that planet", async () => {
+    interface WrapperProps {
+      children: JSX.Element;
+    }
+    const Wrapper = ({ children }: WrapperProps) => (
+      <AppProvider>{children}</AppProvider>
+    );
+    const { result } = renderHook(useAppHook, { wrapper: Wrapper });
+    await act(async () => result.current.getPlanetDetails(1));
+    expect(result.current.state.planetDetails.id).toBe(1);
+  });
 });
