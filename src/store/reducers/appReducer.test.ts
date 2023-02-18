@@ -271,4 +271,22 @@ describe("Given the app reducer", () => {
       mockMinimumPages.currentPagePlanets
     );
   });
+
+  test("When the reducer receives GET_CHARACTER_DETAILS action, then the state should change with the selected character", () => {
+    const characterDetailsAction: AppActions = {
+      type: ActionTypes.GET_CHARACTER_DETAILS,
+      payload: mockCharacters.characters[0],
+    };
+    const updateState = appReducer(mockDefault, characterDetailsAction);
+    expect(updateState.characterDetails).toEqual(mockCharacters.characters[0]);
+  });
+
+  test("When the reducer receives GET_PLANET_DETAILS action, then the state should change with the selected planet", () => {
+    const planetDetailsAction: AppActions = {
+      type: ActionTypes.GET_PLANET_DETAILS,
+      payload: mockPlanets.planets[0],
+    };
+    const updateState = appReducer(mockDefault, planetDetailsAction);
+    expect(updateState.planetDetails).toEqual(mockPlanets.planets[0]);
+  });
 });
