@@ -28,6 +28,18 @@ const mockContext = {
     },
     currentPagePlanets: 1,
     currentPageCharacters: 1,
+    favCharacters: [],
+    favCharacter: {
+      id: 0,
+      name: "",
+      status: "",
+      species: "",
+      gender: "",
+      created: "",
+      image: "",
+      url: "",
+      rating: 0,
+    },
   },
   dispatch: jest.fn(),
 };
