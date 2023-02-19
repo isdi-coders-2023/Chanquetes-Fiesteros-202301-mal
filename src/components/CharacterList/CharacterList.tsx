@@ -2,6 +2,7 @@ import { FC } from "react";
 import { CharacterInterface } from "../../types/appInterfaces";
 import CharacterCard from "../CharacterCard/CharacterCard";
 import Pagination from "../Pagination/Pagination";
+import { Title } from "../Title/Title";
 import "./CharacterList.css";
 
 interface CharacterListProps {
@@ -11,7 +12,7 @@ interface CharacterListProps {
 const CharacterList: FC<CharacterListProps> = ({ characters }) => {
   return (
     <article className="characters__container">
-      <h1>Characters</h1>
+      <Title text="Characters" />
       <Pagination typeOfPagination={"characters"} />
       <ul className="characters__list">
         {characters.map((character) => (

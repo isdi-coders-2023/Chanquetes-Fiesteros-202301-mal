@@ -1,12 +1,13 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { brands } from "@fortawesome/fontawesome-svg-core/import.macro";
-import "../Contact/Contact.css";
+import "./Contact.css";
+import { Title } from "../Title/Title";
 
 const Contact = () => {
   return (
     <article className="contact__container">
-      <h1>About Us</h1>
-      <p className="contact__text">
+      <Title text="Contact" />
+      <p role={"paragraph"} className="contact__text">
         You're talking about Inception? Wubba lubba dub dub! This isn't Game of
         Thrones, Morty. Awwww thankss, save your preferences better that way.
         Plus, if you get in kind of a cool enough relationship, you can sort of

@@ -7,7 +7,7 @@
 }
 
 .characters-card__container:hover {
-  transform: scale(1.01);
+  transform: scale(1.03);
 }
 
 .characters-card__img-and-fav {

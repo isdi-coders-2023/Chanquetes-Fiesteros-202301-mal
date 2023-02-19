@@ -16,10 +16,3 @@
   align-items: center;
   gap: 2rem;
 }
-
-.characters__container h1 {
-  font-family: "Schwifty", monospace;
-  font-size: 3.5rem;
-  color: var(--main-color);
-  margin: 0 auto;
-}

@@ -1,5 +1,5 @@
 #root {
-  background: url("./assets/background-image.jpeg");
+  background: url("./assets/background-animated.gif");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -17,5 +17,11 @@
 @media screen and (min-width: 1024px) {
   .container {
     padding-top: 4rem;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .container {
+    min-height: 75vh;
   }
 }

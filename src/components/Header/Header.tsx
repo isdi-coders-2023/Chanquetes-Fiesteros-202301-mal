@@ -5,7 +5,9 @@ const Header = () => {
   return (
     <header className="header__container">
       <div className="header-cont__logo">
-        <img src="../assets/logo.png" alt="rick and morty logo" />
+        <Link to={"./"}>
+          <img src="../assets/logo.png" alt="rick and morty logo" />
+        </Link>
       </div>
       <input type="checkbox" id="hamb-menu" />
       <label htmlFor="hamb-menu">
