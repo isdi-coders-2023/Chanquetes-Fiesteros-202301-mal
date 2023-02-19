@@ -1,16 +1,16 @@
 export interface AppState {
-  planets: PlanetInterface[];
-  characters: CharacterInterface[];
-  planetDetails: PlanetInterface;
-  characterDetails: CharacterInterface;
+  planets: Planet[];
+  characters: Character[];
+  planetDetails: Planet;
+  characterDetails: Character;
   currentPagePlanets: number;
   currentPageCharacters: number;
 }
 
-export interface PlanetsInterface {
-  results: PlanetInterface[];
+export interface Planets {
+  results: Planet[];
 }
-export interface PlanetInterface {
+export interface Planet {
   id: number;
   name: string;
   type: string;
@@ -19,10 +19,10 @@ export interface PlanetInterface {
   residents: string[];
 }
 
-export interface CharactersInterface {
-  results: CharacterInterface[];
+export interface Characters {
+  results: Character[];
 }
-export interface CharacterInterface {
+export interface Character {
   id: number;
   name: string;
   status: string;
@@ -31,4 +31,8 @@ export interface CharacterInterface {
   image: string;
   url: string;
   created: string;
+}
+
+export interface FavCharacter extends Character {
+  rating: number;
 }
