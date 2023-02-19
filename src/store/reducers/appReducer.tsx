@@ -7,10 +7,11 @@ const appReducer = (state: AppState, action: AppActions): AppState => {
     characters,
     currentPagePlanets: planetsPages,
     currentPageCharacters: charactersPages,
+    favCharacters,
   } = state;
 
   switch (action.type) {
-    // Plantes actions
+    // Planets actions
     case ActionTypes.GET_PLANETS:
       return { ...state, planets: action.payload };
     case ActionTypes.REMOVE_PLANET:
@@ -47,6 +48,35 @@ const appReducer = (state: AppState, action: AppActions): AppState => {
         : { ...state, currentPageCharacters: charactersPages };
     case ActionTypes.GET_CHARACTER_DETAILS:
       return { ...state, characterDetails: action.payload };
+
+    // Favorite characters actions
+    case ActionTypes.GET_FAV_CHARACTERS:
+      return { ...state, ...favCharacters };
+    case ActionTypes.ADD_FAV_CHARACTER:
+      return { ...state, favCharacters: [...favCharacters, action.payload] };
+    case ActionTypes.CHANGE_FAV_CHARACTER_NAME:
+      const [id, name] = action.payload;
+      const updatedFavCharactersName = favCharacters.map((character) => {
+        if (character.id === id) {
+          return { ...character, name };
+        }
+        return character;
+      });
+      return { ...state, favCharacters: updatedFavCharactersName };
+    case ActionTypes.SET_FAV_CHARACTER_RATING:
+      const [rating] = action.payload;
+      const updatedFavCharactersRating = favCharacters.map((character) => {
+        if (character.id === id) {
+          return { ...character, rating };
+        }
+        return character;
+      });
+      return { ...state, favCharacters: updatedFavCharactersRating };
+    case ActionTypes.REMOVE_FAV_CHARACTER:
+      const updatedFavCharacters = favCharacters.filter(
+        (character) => character.id !== action.payload
+      );
+      return { ...state, favCharacters: updatedFavCharacters };
 
     default:
       return state;

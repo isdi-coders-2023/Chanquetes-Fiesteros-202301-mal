@@ -37,7 +37,6 @@ export type CharacterActions =
 export type FavoriteActions =
   | {
       type: ActionTypes.GET_FAV_CHARACTERS;
-      payload: FavCharacter[];
     }
   | {
       type: ActionTypes.ADD_FAV_CHARACTER;
@@ -45,11 +44,11 @@ export type FavoriteActions =
     }
   | {
       type: ActionTypes.CHANGE_FAV_CHARACTER_NAME;
-      payload: FavCharacter["name"];
+      payload: [FavCharacter["id"], FavCharacter["name"]];
     }
   | {
       type: ActionTypes.SET_FAV_CHARACTER_RATING;
-      payload: FavCharacter["rating"];
+      payload: [FavCharacter["id"], FavCharacter["rating"]];
     }
   | {
       type: ActionTypes.REMOVE_FAV_CHARACTER;
