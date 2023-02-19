@@ -98,7 +98,10 @@
 @media screen and (min-width: 1024px) {
   .absolute-img__1 {
     right: 80%;
-    top: 80%;
+    top: 85%;
+  }
+  .absolute-img__2 {
+    width: 300px;
   }
   .absolute-img__3 {
     right: 20%;
@@ -108,20 +111,26 @@
     right: 52.5%;
   }
 }
-@media screen and (min-width: 1264px) {
+@media screen and (min-width: 1280px) {
   .absolute-img__1 {
-    top: 90%;
+    top: 85%;
   }
   .absolute-img__7 {
     right: 5%;
+    height: 180px;
   }
 }
 @media screen and (min-width: 1440px) {
   .absolute-img__1 {
     right: 85%;
-    top: 100%;
+    top: 80%;
+  }
+  .absolute-img__2 {
+    top: -10%;
+    width: 370px;
   }
   .absolute-img__5 {
-    top: 85%;
+    top: 75%;
+    right: 40%;
   }
 }

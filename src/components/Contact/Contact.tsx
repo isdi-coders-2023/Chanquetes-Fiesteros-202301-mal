@@ -1,6 +1,6 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { brands } from "@fortawesome/fontawesome-svg-core/import.macro";
-import "../Contact/Contact.css";
+import "./Contact.css";
 import { Title } from "../Title/Title";
 
 const Contact = () => {

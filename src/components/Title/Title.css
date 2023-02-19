@@ -1,5 +1,7 @@
 .title__component {
   display: block;
+  position: relative;
+  z-index: 15;
   width: 100%;
   margin: 1.5rem 0;
   font-size: 3.4rem;
