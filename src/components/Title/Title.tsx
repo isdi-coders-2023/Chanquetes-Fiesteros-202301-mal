@@ -3,8 +3,9 @@ import "./Title.css";
 
 interface TitleProps {
   text: string;
+  cssClass?: string;
 }
 
-export const Title: FC<TitleProps> = ({ text }) => {
-  return <h1 className="title__component">{text}</h1>;
+export const Title: FC<TitleProps> = ({ text, cssClass = "" }) => {
+  return <h1 className={`title__component ${cssClass}`}>{text}</h1>;
 };
