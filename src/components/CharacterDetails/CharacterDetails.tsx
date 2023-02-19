@@ -1,5 +1,6 @@
 import { FC } from "react";
 import { CharacterInterface } from "../../types/appInterfaces";
+import { Title } from "../Title/Title";
 
 interface CharacterDetailsProps {
   character: CharacterInterface;
@@ -8,7 +9,11 @@ interface CharacterDetailsProps {
 const CharacterDetails: FC<CharacterDetailsProps> = ({ character }) => {
   return (
     <>
-      <h1 data-testid="character-id">{character.name}</h1>
+      <article>
+        <section>
+          <Title text={`${character.name}`} />
+        </section>
+      </article>
     </>
   );
 };

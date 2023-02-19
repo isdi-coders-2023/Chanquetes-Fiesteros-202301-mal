@@ -53,6 +53,7 @@ footer.footer__cont {
     display: flex;
     justify-content: space-between;
     text-align: left;
+    min-height: 15vh;
   }
 
   .footer__cont .footer-cont__logo {
