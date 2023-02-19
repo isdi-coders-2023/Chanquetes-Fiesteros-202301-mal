@@ -1,10 +1,10 @@
 import { render, screen } from "@testing-library/react";
 import { MemoryRouter } from "react-router-dom";
-import { CharacterInterface } from "../../types/appInterfaces";
+import { Character } from "../../types/appInterfaces";
 import CharacterList from "./CharacterList";
 
 describe("Given a CharactersList component", () => {
-  const mockCharacters: CharacterInterface[] = [
+  const mockCharacters: Character[] = [
     {
       id: 1,
       name: "Rick Sanchez",
