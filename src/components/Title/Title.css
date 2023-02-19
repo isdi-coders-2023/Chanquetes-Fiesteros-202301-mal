@@ -1,0 +1,32 @@
+.title__component {
+  display: block;
+  width: 100%;
+  margin: 1.5rem 0;
+  font-size: 3.4rem;
+  font-family: "Schwifty", monospace;
+  color: var(--sec-color);
+  letter-spacing: 2px;
+  text-transform: capitalize;
+  text-align: center;
+  text-shadow: 0 1px 0px #000, 1px 0 0px #000, 1px 2px 1px #000,
+    2px 1px 1px var(--main-color), 2px 3px 2px var(--main-color),
+    3px 2px 2px var(--main-color), 3px 4px 2px var(--main-color),
+    4px 3px 3px var(--main-color), 4px 5px 3px var(--main-color),
+    5px 4px 2px var(--main-color), 5px 6px 2px var(--main-color),
+    6px 5px 2px var(--main-color), 6px 7px 1px var(--main-color),
+    7px 6px 1px var(--main-color), 7px 8px 0px var(--main-color),
+    8px 7px 0px var(--main-color);
+}
+
+.title__component::first-letter {
+  font-size: 3.8rem;
+}
+
+@media screen and (min-width: 1024px) {
+  .title__component {
+    font-size: 3.8rem;
+  }
+  .title__component::first-letter {
+    font-size: 4.3rem;
+  }
+}
