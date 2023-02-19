@@ -48,7 +48,7 @@ describe("Given a character details page", () => {
       </MemoryRouter>
     );
 
-    const characterDetails = await screen.findByTestId("character-id");
-    expect(characterDetails).toBeInTheDocument();
+    const characterDetailsContainer = await screen.findByRole("article");
+    expect(characterDetailsContainer).toBeInTheDocument();
   });
 });
