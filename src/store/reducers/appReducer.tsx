@@ -55,19 +55,17 @@ const appReducer = (state: AppState, action: AppActions): AppState => {
     case ActionTypes.ADD_FAV_CHARACTER:
       return { ...state, favCharacters: [...favCharacters, action.payload] };
     case ActionTypes.CHANGE_FAV_CHARACTER_NAME:
-      const [id, name] = action.payload;
       const updatedFavCharactersName = favCharacters.map((character) => {
-        if (character.id === id) {
-          return { ...character, name };
+        if (character.id === action.payload[0]) {
+          return { ...character, name: action.payload[1] };
         }
         return character;
       });
       return { ...state, favCharacters: updatedFavCharactersName };
     case ActionTypes.SET_FAV_CHARACTER_RATING:
-      const [rating] = action.payload;
       const updatedFavCharactersRating = favCharacters.map((character) => {
-        if (character.id === id) {
-          return { ...character, rating };
+        if (character.id === action.payload[0]) {
+          return { ...character, rating: action.payload[1] };
         }
         return character;
       });

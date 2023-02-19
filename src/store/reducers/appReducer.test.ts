@@ -26,6 +26,30 @@ describe("Given the app reducer", () => {
     },
     currentPageCharacters: 5,
     currentPagePlanets: 5,
+    favCharacters: [
+      {
+        id: 1,
+        name: "Rick Sanchez",
+        status: "",
+        species: "",
+        gender: "",
+        created: "",
+        image: "",
+        url: "",
+        rating: 3,
+      },
+    ],
+    favCharacter: {
+      id: 1,
+      name: "",
+      status: "",
+      species: "",
+      gender: "",
+      created: "",
+      image: "",
+      url: "",
+      rating: 3,
+    },
   };
   const mockMinimumPages: AppState = {
     characters: [],
@@ -50,6 +74,18 @@ describe("Given the app reducer", () => {
     },
     currentPageCharacters: 1,
     currentPagePlanets: 1,
+    favCharacters: [],
+    favCharacter: {
+      id: 0,
+      name: "",
+      status: "",
+      species: "",
+      gender: "",
+      created: "",
+      image: "",
+      url: "",
+      rating: 0,
+    },
   };
   const mockPlanets: AppState = {
     planets: [
@@ -91,6 +127,18 @@ describe("Given the app reducer", () => {
     },
     currentPagePlanets: 1,
     currentPageCharacters: 1,
+    favCharacters: [],
+    favCharacter: {
+      id: 0,
+      name: "",
+      status: "",
+      species: "",
+      gender: "",
+      created: "",
+      image: "",
+      url: "",
+      rating: 0,
+    },
   };
   const mockCharacters: AppState = {
     characters: [
@@ -136,6 +184,18 @@ describe("Given the app reducer", () => {
     },
     currentPageCharacters: 1,
     currentPagePlanets: 1,
+    favCharacters: [],
+    favCharacter: {
+      id: 0,
+      name: "",
+      status: "",
+      species: "",
+      gender: "",
+      created: "",
+      image: "",
+      url: "",
+      rating: 0,
+    },
   };
   test("When the reducer goes to default case, then the new state shouldn't change", () => {
     const defaultAction = {
@@ -189,8 +249,8 @@ describe("Given the app reducer", () => {
       type: ActionTypes.NEXT_PAGE_CHARACTERS,
       payload: 10,
     };
-    const execNextPageCharacters = appReducer(mockDefault, nextPageCharacters);
-    expect(execNextPageCharacters.currentPageCharacters).toBe(
+    const updateState = appReducer(mockDefault, nextPageCharacters);
+    expect(updateState.currentPageCharacters).toBe(
       mockDefault.currentPageCharacters + 1
     );
   });
@@ -199,8 +259,8 @@ describe("Given the app reducer", () => {
     const prevPageCharacters: AppActions = {
       type: ActionTypes.PREV_PAGE_CHARACTERS,
     };
-    const execPrevPageCharacters = appReducer(mockDefault, prevPageCharacters);
-    expect(execPrevPageCharacters.currentPageCharacters).toBe(
+    const updateState = appReducer(mockDefault, prevPageCharacters);
+    expect(updateState.currentPageCharacters).toBe(
       mockDefault.currentPageCharacters - 1
     );
   });
@@ -210,8 +270,8 @@ describe("Given the app reducer", () => {
       type: ActionTypes.NEXT_PAGE_PLANETS,
       payload: 10,
     };
-    const execNextPagePlanets = appReducer(mockDefault, nextPagePlanets);
-    expect(execNextPagePlanets.currentPagePlanets).toBe(
+    const updateState = appReducer(mockDefault, nextPagePlanets);
+    expect(updateState.currentPagePlanets).toBe(
       mockDefault.currentPagePlanets + 1
     );
   });
@@ -220,8 +280,8 @@ describe("Given the app reducer", () => {
     const prevPagePlanets: AppActions = {
       type: ActionTypes.PREV_PAGE_PLANETS,
     };
-    const execPrevPagePlanets = appReducer(mockDefault, prevPagePlanets);
-    expect(execPrevPagePlanets.currentPagePlanets).toBe(
+    const updateState = appReducer(mockDefault, prevPagePlanets);
+    expect(updateState.currentPagePlanets).toBe(
       mockDefault.currentPagePlanets - 1
     );
   });
@@ -231,8 +291,8 @@ describe("Given the app reducer", () => {
       type: ActionTypes.NEXT_PAGE_CHARACTERS,
       payload: 5,
     };
-    const execNextPageCharacters = appReducer(mockDefault, nextPageCharacters);
-    expect(execNextPageCharacters.currentPageCharacters).toBe(
+    const updateState = appReducer(mockDefault, nextPageCharacters);
+    expect(updateState.currentPageCharacters).toBe(
       mockDefault.currentPageCharacters
     );
   });
@@ -242,10 +302,8 @@ describe("Given the app reducer", () => {
       type: ActionTypes.NEXT_PAGE_PLANETS,
       payload: 5,
     };
-    const execNextPagePlanets = appReducer(mockDefault, nextPagePlanets);
-    expect(execNextPagePlanets.currentPagePlanets).toBe(
-      mockDefault.currentPagePlanets
-    );
+    const updateState = appReducer(mockDefault, nextPagePlanets);
+    expect(updateState.currentPagePlanets).toBe(mockDefault.currentPagePlanets);
   });
 
   test("When the user triggers the characters previous page action and the actual page is the lowest, then the pagination shouldn't change", () => {
@@ -253,11 +311,8 @@ describe("Given the app reducer", () => {
       type: ActionTypes.PREV_PAGE_CHARACTERS,
     };
 
-    const execPrevPageCharacters = appReducer(
-      mockMinimumPages,
-      prevPageCharacters
-    );
-    expect(execPrevPageCharacters.currentPageCharacters).toBe(
+    const updateState = appReducer(mockMinimumPages, prevPageCharacters);
+    expect(updateState.currentPageCharacters).toBe(
       mockMinimumPages.currentPageCharacters
     );
   });
@@ -266,8 +321,8 @@ describe("Given the app reducer", () => {
     const prevPagePlanets: AppActions = {
       type: ActionTypes.PREV_PAGE_PLANETS,
     };
-    const execPrevPagePlanets = appReducer(mockMinimumPages, prevPagePlanets);
-    expect(execPrevPagePlanets.currentPagePlanets).toBe(
+    const updateState = appReducer(mockMinimumPages, prevPagePlanets);
+    expect(updateState.currentPagePlanets).toBe(
       mockMinimumPages.currentPagePlanets
     );
   });
@@ -288,5 +343,71 @@ describe("Given the app reducer", () => {
     };
     const updateState = appReducer(mockDefault, planetDetailsAction);
     expect(updateState.planetDetails).toEqual(mockPlanets.planets[0]);
+  });
+
+  test("When the user wants to see it's favorite characters, then the favorite characters state should be called", () => {
+    const getFavCharac: AppActions = {
+      type: ActionTypes.GET_FAV_CHARACTERS,
+    };
+    const updateState = appReducer(mockPlanets, getFavCharac);
+    expect(updateState).toEqual(mockPlanets);
+  });
+
+  test("When the user adds a character to favorites, then the favorites state should add the expected character", () => {
+    const addFavCharac: AppActions = {
+      type: ActionTypes.ADD_FAV_CHARACTER,
+      payload: mockDefault.favCharacter,
+    };
+    expect(mockDefault.favCharacters).toHaveLength(1);
+    const updateState = appReducer(mockDefault, addFavCharac);
+    expect(updateState.favCharacters).toHaveLength(2);
+  });
+
+  test("When the user changes a character's name, then it should change in the global state", () => {
+    const changeFavCharacName: AppActions = {
+      type: ActionTypes.CHANGE_FAV_CHARACTER_NAME,
+      payload: [1, "Morty Smith"],
+    };
+    expect(mockDefault.favCharacters[0].name).toEqual("Rick Sanchez");
+    const updateState = appReducer(mockDefault, changeFavCharacName);
+    expect(updateState.favCharacters[0].name).toEqual("Morty Smith");
+  });
+
+  test("When the user tryies to set a character's name but the id isn't on it's favorite characters, then global state shouldn't change", () => {
+    const setFavCharacRating: AppActions = {
+      type: ActionTypes.CHANGE_FAV_CHARACTER_NAME,
+      payload: [5, "Morty Smith"],
+    };
+    const updateState = appReducer(mockDefault, setFavCharacRating);
+    expect(updateState.favCharacters[0].name).toEqual("Rick Sanchez");
+  });
+
+  test("When the user sets a character's rating, then it should change in the global state", () => {
+    const setFavCharacRating: AppActions = {
+      type: ActionTypes.SET_FAV_CHARACTER_RATING,
+      payload: [1, 5],
+    };
+    expect(mockDefault.favCharacters[0].rating).toEqual(3);
+    const updateState = appReducer(mockDefault, setFavCharacRating);
+    expect(updateState.favCharacters[0].rating).toEqual(5);
+  });
+
+  test("When the user tryies to set a character's rating but the id isn't on it's favorite characters, then global state shouldn't change", () => {
+    const setFavCharacRating: AppActions = {
+      type: ActionTypes.SET_FAV_CHARACTER_RATING,
+      payload: [5, 2],
+    };
+    const updateState = appReducer(mockDefault, setFavCharacRating);
+    expect(updateState.favCharacters[0].rating).toEqual(3);
+  });
+
+  test("When the user removes a character, then it should change in the global state", () => {
+    const removeFavCharac: AppActions = {
+      type: ActionTypes.REMOVE_FAV_CHARACTER,
+      payload: 1,
+    };
+    expect(mockDefault.favCharacters).toHaveLength(1);
+    const updateState = appReducer(mockDefault, removeFavCharac);
+    expect(updateState.favCharacters).toHaveLength(0);
   });
 });
