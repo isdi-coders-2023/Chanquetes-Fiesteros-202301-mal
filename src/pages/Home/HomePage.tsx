@@ -25,6 +25,11 @@ const Home = () => {
         alt="Screaming sun"
       />
       <img
+        className="absolute-img__5"
+        src="./assets/img/home-5.png"
+        alt="Flying Ruben"
+      />
+      <img
         className="absolute-img__6"
         src="./assets/img/home-6.png"
         alt="Mr Meeseeks"
@@ -33,11 +38,6 @@ const Home = () => {
         className="absolute-img__7"
         src="./assets/img/home-7.png"
         alt="Snuffles"
-      />
-      <img
-        className="absolute-img__9"
-        src="./assets/img/home-9.png"
-        alt="Flying Ruben"
       />
       <Title text="Rick and Morty Universe" />
       <p className="home-container__text" role={"paragraph"}>
