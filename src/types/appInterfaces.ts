@@ -5,6 +5,8 @@ export interface AppState {
   characterDetails: Character;
   currentPagePlanets: number;
   currentPageCharacters: number;
+  favCharacter: FavCharacter;
+  favCharacters: FavCharacter[];
 }
 
 export interface Planets {
