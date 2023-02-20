@@ -36,6 +36,7 @@ export interface Character {
 }
 
 export interface FavCharacter {
+  id: number;
   name: string;
   status: string;
   species: string;

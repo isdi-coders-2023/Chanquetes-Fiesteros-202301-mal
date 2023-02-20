@@ -9,8 +9,8 @@ const mockContext = {
     planets: [],
     characters: [],
     planetDetails: {
-      id: 0,
-      name: "",
+      id: 1,
+      name: "Earth (C-137)",
       type: "",
       dimension: "",
       created: "",
@@ -30,7 +30,8 @@ const mockContext = {
     currentPageCharacters: 1,
     favCharacters: [],
     favCharacter: {
-      name: "",
+      id: 1,
+      name: "Rick Sanchez",
       status: "",
       species: "",
       gender: "",
