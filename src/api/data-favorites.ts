@@ -27,8 +27,7 @@ export const addFavoriteCharacter = async (character: Character) => {
       body: JSON.stringify(mergedData),
     }
   );
-  const newfavoriteCharacters: FavCharacter[] = await response.json();
-  return newfavoriteCharacters;
+  return response.status;
 };
 
 export const changeFavoriteCharacterName = async (

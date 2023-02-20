@@ -35,7 +35,7 @@ describe("Given a Private API call", () => {
 
   test("When the server respond with a 200, then the new character should be added to the list", async () => {
     const newFavoriteCharacter = await addFavoriteCharacter(mockCharacter);
-    expect(newFavoriteCharacter[0]).toEqual(mockFavCharacter);
+    expect(newFavoriteCharacter).toBe(201);
   });
 
   test("When the server respond with a 200, then the favorite character should be updated with the new name", async () => {
