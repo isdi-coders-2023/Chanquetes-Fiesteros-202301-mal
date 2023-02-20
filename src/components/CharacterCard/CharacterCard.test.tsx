@@ -15,7 +15,7 @@ describe("Given a character card component", () => {
     url: "",
   };
 
-  test("When the Card render, then it must be a paragraph in the document", () => {
+  test("When the Card render, then it should be a paragraph in the document", () => {
     render(<CharacterCard character={mockCharacter} icon="star" />, {
       wrapper: MemoryRouter,
     });
