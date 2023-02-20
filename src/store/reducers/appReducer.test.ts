@@ -4,32 +4,16 @@ import appReducer from "./appReducer";
 
 describe("Given the app reducer", () => {
   const mockDefault: AppState = {
-    characters: [],
     planets: [],
-    characterDetails: {
-      id: 0,
-      name: "",
-      status: "",
-      species: "",
-      gender: "",
-      created: "",
-      image: "",
-      url: "",
-    },
-    planetDetails: {
-      id: 0,
-      name: "",
-      type: "",
-      dimension: "",
-      created: "",
-      residents: [""],
-    },
-    currentPageCharacters: 5,
-    currentPagePlanets: 5,
-  };
-  const mockMinimumPages: AppState = {
     characters: [],
-    planets: [],
+    planetDetails: {
+      id: 0,
+      name: "",
+      type: "",
+      dimension: "",
+      created: "",
+      residents: [""],
+    },
     characterDetails: {
       id: 0,
       name: "",
@@ -39,85 +23,11 @@ describe("Given the app reducer", () => {
       created: "",
       image: "",
       url: "",
-    },
-    planetDetails: {
-      id: 0,
-      name: "",
-      type: "",
-      dimension: "",
-      created: "",
-      residents: [""],
-    },
-    currentPageCharacters: 1,
-    currentPagePlanets: 1,
-  };
-  const mockPlanets: AppState = {
-    planets: [
-      {
-        id: 1,
-        name: "Earth (C-137)",
-        created: "",
-        dimension: "",
-        residents: [""],
-        type: "",
-      },
-      {
-        id: 2,
-        name: "Abadango",
-        created: "",
-        dimension: "",
-        residents: [""],
-        type: "",
-      },
-    ],
-    characters: [],
-    characterDetails: {
-      id: 0,
-      name: "",
-      status: "",
-      species: "",
-      gender: "",
-      created: "",
-      image: "",
-      url: "",
-    },
-    planetDetails: {
-      id: 0,
-      name: "",
-      type: "",
-      dimension: "",
-      created: "",
-      residents: [""],
     },
     currentPagePlanets: 1,
     currentPageCharacters: 1,
-  };
-  const mockCharacters: AppState = {
-    characters: [
-      {
-        id: 1,
-        name: "Rick Sanchez",
-        created: "",
-        gender: "",
-        image: "",
-        species: "",
-        status: "",
-        url: "",
-      },
-      {
-        id: 2,
-        name: "Morty Smith",
-        created: "",
-        gender: "",
-        image: "",
-        species: "",
-        status: "",
-        url: "",
-      },
-    ],
-    planets: [],
-    characterDetails: {
-      id: 0,
+    favCharacter: {
+      id: 1,
       name: "",
       status: "",
       species: "",
@@ -125,18 +35,26 @@ describe("Given the app reducer", () => {
       created: "",
       image: "",
       url: "",
+      rating: 0,
     },
-    planetDetails: {
-      id: 0,
-      name: "",
-      type: "",
-      dimension: "",
-      created: "",
-      residents: [""],
-    },
-    currentPageCharacters: 1,
-    currentPagePlanets: 1,
+    favCharacters: [],
   };
+  const mockPlanets: AppState["planets"] = [];
+  const mockCharacters: AppState["characters"] = [];
+  const mockFavCharacters: AppState["favCharacters"] = [
+    {
+      id: 1,
+      name: "Rick Sanchez",
+      created: "",
+      gender: "",
+      image: "",
+      rating: 0,
+      species: "",
+      status: "",
+      url: "",
+    },
+  ];
+
   test("When the reducer goes to default case, then the new state shouldn't change", () => {
     const defaultAction = {
       type: "",
@@ -148,145 +66,126 @@ describe("Given the app reducer", () => {
     expect(updateState).toEqual(mockDefault);
   });
 
-  test("When the reducer receives GET_PLANETS action, then the state should change with the new planets", () => {
+  test("When the reducer receives GET_CHARACTERS action, then the state of the global context should change", () => {
+    const charactersAction: AppActions = {
+      type: ActionTypes.GET_CHARACTERS,
+      payload: mockCharacters,
+    };
+    const updateState = appReducer(mockDefault, charactersAction);
+    expect(updateState).toEqual(mockDefault);
+  });
+
+  test("When the reducer receives GET_PLANETS action, then the state of the global context should change", () => {
     const planetsAction: AppActions = {
       type: ActionTypes.GET_PLANETS,
-      payload: mockPlanets.planets,
+      payload: mockPlanets,
     };
-    const updateState = appReducer(mockPlanets, planetsAction);
-    expect(updateState).toEqual(mockPlanets);
+    const updateState = appReducer(mockDefault, planetsAction);
+    expect(updateState).toEqual(mockDefault);
   });
 
-  test("When the reducer receives REMOVE_PLANET action, then the new state shouldn't have the planet given", () => {
-    const planetsAction: AppActions = {
-      type: ActionTypes.REMOVE_PLANET,
-      payload: 2,
-    };
-    const updateState = appReducer(mockPlanets, planetsAction);
-    expect(updateState.planets).toHaveLength(1);
-  });
-
-  test("When the reducer receives GET_CHARACTERS action, then the state should change with the new characters", () => {
-    const planetsAction: AppActions = {
-      type: ActionTypes.GET_CHARACTERS,
-      payload: mockCharacters.characters,
-    };
-    const updateState = appReducer(mockCharacters, planetsAction);
-    expect(updateState).toEqual(mockCharacters);
-  });
-
-  test("When the reducer receives REMOVE_CHARACTERS action, then the new state shouldn't have the character given", () => {
+  test("When the reducer receives NEXT_PAGE_CHARACTERS action, then the pagination should be one number higher than before", () => {
     const charactersAction: AppActions = {
-      type: ActionTypes.REMOVE_CHARACTER,
-      payload: 2,
-    };
-    const updateState = appReducer(mockCharacters, charactersAction);
-    expect(updateState.characters).toHaveLength(1);
-  });
-
-  test("When the user triggers the characters next page action, then the pagination should be one number higher than before", () => {
-    const nextPageCharacters: AppActions = {
       type: ActionTypes.NEXT_PAGE_CHARACTERS,
       payload: 10,
     };
-    const execNextPageCharacters = appReducer(mockDefault, nextPageCharacters);
-    expect(execNextPageCharacters.currentPageCharacters).toBe(
+    const updateState = appReducer(mockDefault, charactersAction);
+    expect(updateState.currentPageCharacters).toBe(
       mockDefault.currentPageCharacters + 1
     );
   });
 
-  test("When the user triggers the characters previous page action, then the pagination should be one number lower than before", () => {
-    const prevPageCharacters: AppActions = {
+  test("When the reducer receives PREV_PAGE_CHARACTERS action, then the pagination should be one number lower than before", () => {
+    const charactersAction: AppActions = {
       type: ActionTypes.PREV_PAGE_CHARACTERS,
     };
-    const execPrevPageCharacters = appReducer(mockDefault, prevPageCharacters);
-    expect(execPrevPageCharacters.currentPageCharacters).toBe(
-      mockDefault.currentPageCharacters - 1
-    );
+    const updateState = appReducer(mockDefault, charactersAction);
+    expect(updateState.currentPageCharacters).toBe(1);
   });
 
-  test("When the user triggers the planets next page action, then the pagination should be one number higher than before", () => {
-    const nextPagePlanets: AppActions = {
+  test("When the reducer receives NEXT_PAGE_PLANETS action, then the pagination should be one number higher than before", () => {
+    const planetsAction: AppActions = {
       type: ActionTypes.NEXT_PAGE_PLANETS,
       payload: 10,
     };
-    const execNextPagePlanets = appReducer(mockDefault, nextPagePlanets);
-    expect(execNextPagePlanets.currentPagePlanets).toBe(
+    const updateState = appReducer(mockDefault, planetsAction);
+    expect(updateState.currentPagePlanets).toBe(
       mockDefault.currentPagePlanets + 1
     );
   });
 
-  test("When the user triggers the planets previous page action, then the pagination should be one number lower than before", () => {
-    const prevPagePlanets: AppActions = {
+  test("When the reducer receives PREV_PAGE_PLANETS action, then the pagination should be one number lower than before", () => {
+    const planetsAction: AppActions = {
       type: ActionTypes.PREV_PAGE_PLANETS,
     };
-    const execPrevPagePlanets = appReducer(mockDefault, prevPagePlanets);
-    expect(execPrevPagePlanets.currentPagePlanets).toBe(
-      mockDefault.currentPagePlanets - 1
-    );
+    const updateState = appReducer(mockDefault, planetsAction);
+    expect(updateState.currentPagePlanets).toBe(1);
   });
 
-  test("When the user triggers the characters next page action and the actual page is the higher, then the pagination shouldn't change", () => {
-    const nextPageCharacters: AppActions = {
+  test("When the reducer receives NEXT_PAGE_CHARACTERS action and the actual page is the highest, then the pagination shouldn't change", () => {
+    const charactersAction: AppActions = {
       type: ActionTypes.NEXT_PAGE_CHARACTERS,
-      payload: 5,
+      payload: 1,
     };
-    const execNextPageCharacters = appReducer(mockDefault, nextPageCharacters);
-    expect(execNextPageCharacters.currentPageCharacters).toBe(
+    const updateState = appReducer(mockDefault, charactersAction);
+    expect(updateState.currentPageCharacters).toBe(
       mockDefault.currentPageCharacters
     );
   });
 
-  test("When the user triggers the planets next page action and the actual page is the higher, then the pagination shouldn't change", () => {
-    const nextPagePlanets: AppActions = {
+  test("When the reducer receives NEXT_PAGE_PLANETS action and the actual page is the highest, then the pagination shouldn't change", () => {
+    const planetsAction: AppActions = {
       type: ActionTypes.NEXT_PAGE_PLANETS,
-      payload: 5,
+      payload: 1,
     };
-    const execNextPagePlanets = appReducer(mockDefault, nextPagePlanets);
-    expect(execNextPagePlanets.currentPagePlanets).toBe(
-      mockDefault.currentPagePlanets
-    );
+    const updateState = appReducer(mockDefault, planetsAction);
+    expect(updateState.currentPagePlanets).toBe(mockDefault.currentPagePlanets);
   });
 
-  test("When the user triggers the characters previous page action and the actual page is the lowest, then the pagination shouldn't change", () => {
-    const prevPageCharacters: AppActions = {
+  test("When the reducer receives PREV_PAGE_CHARACTERS action and the actual page is the lowest, then the pagination shouldn't change", () => {
+    const charactersAction: AppActions = {
       type: ActionTypes.PREV_PAGE_CHARACTERS,
     };
 
-    const execPrevPageCharacters = appReducer(
-      mockMinimumPages,
-      prevPageCharacters
-    );
-    expect(execPrevPageCharacters.currentPageCharacters).toBe(
-      mockMinimumPages.currentPageCharacters
+    const updateState = appReducer(mockDefault, charactersAction);
+    expect(updateState.currentPageCharacters).toBe(
+      mockDefault.currentPageCharacters
     );
   });
 
-  test("When the user triggers the planets previous page action and the actual page is the lowest, then the pagination shouldn't change", () => {
-    const prevPagePlanets: AppActions = {
+  test("When the reducer receives PREV_PAGE_PLANETS action and the actual page is the lowest, then the pagination shouldn't change", () => {
+    const planetsAction: AppActions = {
       type: ActionTypes.PREV_PAGE_PLANETS,
     };
-    const execPrevPagePlanets = appReducer(mockMinimumPages, prevPagePlanets);
-    expect(execPrevPagePlanets.currentPagePlanets).toBe(
-      mockMinimumPages.currentPagePlanets
-    );
+    const updateState = appReducer(mockDefault, planetsAction);
+    expect(updateState.currentPagePlanets).toBe(mockDefault.currentPagePlanets);
   });
 
   test("When the reducer receives GET_CHARACTER_DETAILS action, then the state should change with the selected character", () => {
-    const characterDetailsAction: AppActions = {
+    const charactersAction: AppActions = {
       type: ActionTypes.GET_CHARACTER_DETAILS,
-      payload: mockCharacters.characters[0],
+      payload: mockCharacters[0],
     };
-    const updateState = appReducer(mockDefault, characterDetailsAction);
-    expect(updateState.characterDetails).toEqual(mockCharacters.characters[0]);
+    const updateState = appReducer(mockDefault, charactersAction);
+    expect(updateState.characterDetails).toEqual(mockCharacters[0]);
   });
 
   test("When the reducer receives GET_PLANET_DETAILS action, then the state should change with the selected planet", () => {
-    const planetDetailsAction: AppActions = {
+    const planetsAction: AppActions = {
       type: ActionTypes.GET_PLANET_DETAILS,
-      payload: mockPlanets.planets[0],
+      payload: mockPlanets[0],
     };
-    const updateState = appReducer(mockDefault, planetDetailsAction);
-    expect(updateState.planetDetails).toEqual(mockPlanets.planets[0]);
+    const updateState = appReducer(mockDefault, planetsAction);
+    expect(updateState.planetDetails).toEqual(mockCharacters[0]);
+  });
+
+  test("When the reducer receives UPDATE_FAV_CHARACTERS action, then the state should with the new favorite characters data", () => {
+    const favCharactersAction: AppActions = {
+      type: ActionTypes.UPDATE_FAV_CHARACTERS,
+      payload: mockFavCharacters,
+    };
+    expect(mockDefault.favCharacters).toHaveLength(0);
+    const updateState = appReducer(mockDefault, favCharactersAction);
+    expect(updateState.favCharacters).toHaveLength(1);
   });
 });

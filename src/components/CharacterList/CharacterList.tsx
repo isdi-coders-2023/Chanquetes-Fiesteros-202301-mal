@@ -1,12 +1,12 @@
 import { FC } from "react";
-import { CharacterInterface } from "../../types/appInterfaces";
+import { Character } from "../../types/appInterfaces";
 import CharacterCard from "../CharacterCard/CharacterCard";
 import Pagination from "../Pagination/Pagination";
 import { Title } from "../Title/Title";
 import "./CharacterList.css";
 
 interface CharacterListProps {
-  characters: CharacterInterface[];
+  characters: Character[];
 }
 
 const CharacterList: FC<CharacterListProps> = ({ characters }) => {
@@ -17,7 +17,7 @@ const CharacterList: FC<CharacterListProps> = ({ characters }) => {
       <ul className="characters__list">
         {characters.map((character) => (
           <li key={`${character.id}-${character.name}`}>
-            <CharacterCard character={character} />
+            <CharacterCard character={character} icon={"star"} />
           </li>
         ))}
       </ul>

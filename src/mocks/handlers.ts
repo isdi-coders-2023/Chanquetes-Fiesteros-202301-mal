@@ -46,4 +46,42 @@ export const handlers = [
       })
     );
   }),
+  rest.get(
+    "https://private-api-adzv.onrender.com/characters",
+    (_req, res, ctx) => {
+      return res(
+        ctx.json([
+          {
+            id: 1,
+            name: "Rick Sanchez",
+            status: "",
+            species: "",
+            gender: "",
+            image: "",
+            url: "",
+            created: "",
+            rating: 0,
+          },
+        ])
+      );
+    }
+  ),
+  rest.post(
+    "https://private-api-adzv.onrender.com/characters",
+    (req, res, ctx) => {
+      return res(ctx.status(201));
+    }
+  ),
+  rest.patch(
+    "https://private-api-adzv.onrender.com/characters/:id",
+    (_req, res, ctx) => {
+      return res(ctx.status(204));
+    }
+  ),
+  rest.delete(
+    "https://private-api-adzv.onrender.com/characters/:id",
+    (_req, res, ctx) => {
+      return res(ctx.status(204));
+    }
+  ),
 ];

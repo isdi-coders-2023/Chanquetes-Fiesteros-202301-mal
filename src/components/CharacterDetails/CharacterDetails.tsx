@@ -1,11 +1,11 @@
 import { FC } from "react";
 import { Link } from "react-router-dom";
-import { CharacterInterface } from "../../types/appInterfaces";
+import { Character } from "../../types/appInterfaces";
 import { Title } from "../Title/Title";
 import "./CharacterDetails.css";
 
 interface CharacterDetailsProps {
-  character: CharacterInterface;
+  character: Character;
 }
 
 const CharacterDetails: FC<CharacterDetailsProps> = ({ character }) => {

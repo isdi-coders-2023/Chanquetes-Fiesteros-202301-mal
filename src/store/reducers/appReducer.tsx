@@ -3,21 +3,16 @@ import { AppState } from "../../types/appInterfaces";
 
 const appReducer = (state: AppState, action: AppActions): AppState => {
   const {
-    planets,
-    characters,
     currentPagePlanets: planetsPages,
     currentPageCharacters: charactersPages,
   } = state;
 
   switch (action.type) {
-    // Plantes actions
+    // Planets actions
     case ActionTypes.GET_PLANETS:
       return { ...state, planets: action.payload };
-    case ActionTypes.REMOVE_PLANET:
-      const newPlanets = planets.filter(
-        (planet) => planet.id !== action.payload
-      );
-      return { ...state, planets: newPlanets };
+    case ActionTypes.GET_PLANET_DETAILS:
+      return { ...state, planetDetails: action.payload };
     case ActionTypes.NEXT_PAGE_PLANETS:
       return planetsPages < action.payload
         ? { ...state, currentPagePlanets: planetsPages + 1 }
@@ -26,17 +21,12 @@ const appReducer = (state: AppState, action: AppActions): AppState => {
       return planetsPages > 1
         ? { ...state, currentPagePlanets: planetsPages - 1 }
         : { ...state, currentPagePlanets: planetsPages };
-    case ActionTypes.GET_PLANET_DETAILS:
-      return { ...state, planetDetails: action.payload };
 
     // Characters actions
     case ActionTypes.GET_CHARACTERS:
       return { ...state, characters: action.payload };
-    case ActionTypes.REMOVE_CHARACTER:
-      const newCharacters = characters.filter(
-        (character) => character.id !== action.payload
-      );
-      return { ...state, characters: newCharacters };
+    case ActionTypes.GET_CHARACTER_DETAILS:
+      return { ...state, characterDetails: action.payload };
     case ActionTypes.NEXT_PAGE_CHARACTERS:
       return charactersPages < action.payload
         ? { ...state, currentPageCharacters: charactersPages + 1 }
@@ -45,8 +35,10 @@ const appReducer = (state: AppState, action: AppActions): AppState => {
       return charactersPages > 1
         ? { ...state, currentPageCharacters: charactersPages - 1 }
         : { ...state, currentPageCharacters: charactersPages };
-    case ActionTypes.GET_CHARACTER_DETAILS:
-      return { ...state, characterDetails: action.payload };
+
+    // Favorite characters actions
+    case ActionTypes.UPDATE_FAV_CHARACTERS:
+      return { ...state, favCharacters: action.payload };
 
     default:
       return state;
