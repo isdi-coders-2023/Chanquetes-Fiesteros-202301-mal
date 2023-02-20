@@ -13,7 +13,6 @@ export enum ActionTypes {
   NEXT_PAGE_CHARACTERS = "nextPageCharacters",
   PREV_PAGE_CHARACTERS = "prevPageCharacters",
 
-  GET_FAV_CHARACTERS = "getFavCharacters",
   UPDATE_FAV_CHARACTERS = "updateFavCharacters",
 }
 
@@ -29,6 +28,7 @@ export type CharacterActions =
   | { type: ActionTypes.NEXT_PAGE_CHARACTERS; payload: number }
   | { type: ActionTypes.PREV_PAGE_CHARACTERS };
 
-export type FavoriteActions =
-  | { type: ActionTypes.GET_FAV_CHARACTERS }
-  | { type: ActionTypes.UPDATE_FAV_CHARACTERS; payload: FavCharacter[] };
+export type FavoriteActions = {
+  type: ActionTypes.UPDATE_FAV_CHARACTERS;
+  payload: FavCharacter[];
+};

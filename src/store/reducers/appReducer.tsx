@@ -5,7 +5,6 @@ const appReducer = (state: AppState, action: AppActions): AppState => {
   const {
     currentPagePlanets: planetsPages,
     currentPageCharacters: charactersPages,
-    favCharacters,
   } = state;
 
   switch (action.type) {
@@ -38,8 +37,6 @@ const appReducer = (state: AppState, action: AppActions): AppState => {
         : { ...state, currentPageCharacters: charactersPages };
 
     // Favorite characters actions
-    case ActionTypes.GET_FAV_CHARACTERS:
-      return { ...state, ...favCharacters };
     case ActionTypes.UPDATE_FAV_CHARACTERS:
       return { ...state, favCharacters: action.payload };
 
