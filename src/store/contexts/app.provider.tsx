@@ -44,10 +44,6 @@ const AppProvider: FC<DataProviderProps> = ({ children }) => {
         url: "",
         created: "",
         rating: 0,
-        location: {
-          name: "",
-          url: "",
-        },
       },
       favCharacters: [],
     }

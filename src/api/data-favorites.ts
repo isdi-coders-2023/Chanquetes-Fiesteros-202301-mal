@@ -16,7 +16,7 @@ export const getFavoriteCharacters = async () => {
 };
 
 export const addFavoriteCharacter = async (character: Character) => {
-  const newJsonData = { rating: 0, location: { name: "", url: "" } };
+  const newJsonData = { rating: 0 };
   const mergedData = { ...character, ...newJsonData };
 
   const response = await fetch(

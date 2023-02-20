@@ -45,8 +45,4 @@ export interface FavCharacter {
   url: string;
   created: string;
   rating: number;
-  location: {
-    name: string;
-    url: string;
-  };
 }

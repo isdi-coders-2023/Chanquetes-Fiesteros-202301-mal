@@ -41,10 +41,6 @@ const AppContext = createContext<AppContextProps>({
       url: "",
       created: "",
       rating: 0,
-      location: {
-        name: "",
-        url: "",
-      },
     },
     favCharacters: [],
   },

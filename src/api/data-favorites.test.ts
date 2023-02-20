@@ -1,4 +1,5 @@
 import { server } from "../mocks/server";
+import { Character, FavCharacter } from "../types/appInterfaces";
 import {
   addFavoriteCharacter,
   changeFavoriteCharacterName,
@@ -7,7 +8,7 @@ import {
   setFavoriteCharacterRating,
 } from "./data-favorites";
 
-const mockCharacter = {
+const mockCharacter: Character = {
   id: 1,
   name: "Rick Sanchez",
   status: "",
@@ -17,13 +18,9 @@ const mockCharacter = {
   url: "",
   created: "",
 };
-const mockFavCharacter = {
+const mockFavCharacter: FavCharacter = {
   ...mockCharacter,
   rating: 0,
-  location: {
-    name: "",
-    url: "",
-  },
 };
 
 describe("Given a Private API call", () => {

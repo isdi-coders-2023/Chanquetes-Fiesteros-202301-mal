@@ -36,10 +36,6 @@ describe("Given the app reducer", () => {
       image: "",
       url: "",
       rating: 0,
-      location: {
-        name: "",
-        url: "",
-      },
     },
     favCharacters: [],
   };
@@ -56,10 +52,6 @@ describe("Given the app reducer", () => {
       species: "",
       status: "",
       url: "",
-      location: {
-        name: "",
-        url: "",
-      },
     },
   ];
 

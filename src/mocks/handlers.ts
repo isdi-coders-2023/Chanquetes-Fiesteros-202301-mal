@@ -62,10 +62,6 @@ export const handlers = [
             url: "",
             created: "",
             rating: 0,
-            location: {
-              name: "",
-              url: "",
-            },
           },
         ])
       );
