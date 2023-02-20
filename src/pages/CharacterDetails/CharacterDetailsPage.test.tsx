@@ -30,7 +30,6 @@ const mockContext = {
     currentPageCharacters: 1,
     favCharacters: [],
     favCharacter: {
-      id: 0,
       name: "",
       status: "",
       species: "",
@@ -39,6 +38,10 @@ const mockContext = {
       image: "",
       url: "",
       rating: 0,
+      location: {
+        name: "",
+        url: "",
+      },
     },
   },
   dispatch: jest.fn(),

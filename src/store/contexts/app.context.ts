@@ -32,7 +32,6 @@ const AppContext = createContext<AppContextProps>({
     currentPagePlanets: 1,
     currentPageCharacters: 1,
     favCharacter: {
-      id: 0,
       name: "",
       status: "",
       species: "",
@@ -41,6 +40,10 @@ const AppContext = createContext<AppContextProps>({
       url: "",
       created: "",
       rating: 0,
+      location: {
+        name: "",
+        url: "",
+      },
     },
     favCharacters: [],
   },

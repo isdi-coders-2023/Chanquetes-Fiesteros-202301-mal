@@ -27,7 +27,6 @@ describe("Given the app reducer", () => {
     currentPagePlanets: 1,
     currentPageCharacters: 1,
     favCharacter: {
-      id: 0,
       name: "",
       status: "",
       species: "",
@@ -36,6 +35,10 @@ describe("Given the app reducer", () => {
       image: "",
       url: "",
       rating: 0,
+      location: {
+        name: "",
+        url: "",
+      },
     },
     favCharacters: [],
   };
@@ -43,7 +46,6 @@ describe("Given the app reducer", () => {
   const mockCharacters: AppState["characters"] = [];
   const mockFavCharacters: AppState["favCharacters"] = [
     {
-      id: 1,
       name: "Rick Sanchez",
       created: "",
       gender: "",
@@ -52,6 +54,10 @@ describe("Given the app reducer", () => {
       species: "",
       status: "",
       url: "",
+      location: {
+        name: "",
+        url: "",
+      },
     },
   ];
 

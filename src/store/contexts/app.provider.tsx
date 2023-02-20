@@ -35,7 +35,6 @@ const AppProvider: FC<DataProviderProps> = ({ children }) => {
       currentPagePlanets: 1,
       currentPageCharacters: 1,
       favCharacter: {
-        id: 0,
         name: "",
         status: "",
         species: "",
@@ -44,6 +43,10 @@ const AppProvider: FC<DataProviderProps> = ({ children }) => {
         url: "",
         created: "",
         rating: 0,
+        location: {
+          name: "",
+          url: "",
+        },
       },
       favCharacters: [],
     }

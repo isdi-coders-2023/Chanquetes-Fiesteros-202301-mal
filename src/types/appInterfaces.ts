@@ -35,6 +35,17 @@ export interface Character {
   created: string;
 }
 
-export interface FavCharacter extends Character {
+export interface FavCharacter {
+  name: string;
+  status: string;
+  species: string;
+  gender: string;
+  image: string;
+  url: string;
+  created: string;
   rating: number;
+  location: {
+    name: string;
+    url: string;
+  };
 }
