@@ -1,9 +1,9 @@
 import { Character, FavCharacter } from "../types/appInterfaces";
 
-interface favCharacNameProp {
+interface FavoriteCharacterName {
   name: string;
 }
-interface favCharacRatingProp {
+interface FavoriteCharacterRating {
   rating: number;
 }
 
@@ -32,7 +32,7 @@ export const addFavoriteCharacter = async (character: Character) => {
 
 export const changeFavoriteCharacterName = async (
   characterId: number,
-  characterName: favCharacNameProp
+  characterName: FavoriteCharacterName
 ) => {
   const response = await fetch(
     `https://private-api-adzv.onrender.com/characters/${characterId}`,
@@ -47,7 +47,7 @@ export const changeFavoriteCharacterName = async (
 
 export const setFavoriteCharacterRating = async (
   characterId: number,
-  characterRating: favCharacRatingProp
+  characterRating: FavoriteCharacterRating
 ) => {
   const response = await fetch(
     `https://private-api-adzv.onrender.com/characters/${characterId}`,
